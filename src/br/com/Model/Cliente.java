@@ -8,9 +8,7 @@ package br.com.Model;
     private String telefoneEmpresaCliente;
     private String procedenciaCliente;
     private String destinoCliente;
-    private ServicoGeral servicoGeral;
-    private Reserva reservaCliente;
-    private Estadia estadiaCliente;    
+    private ServicoGeral servicoGeral;    
     
      //GERAR CONSTRUTOR
     public Cliente() {
@@ -63,27 +61,12 @@ package br.com.Model;
 
     public void setServicoGeral(ServicoGeral servicoGeral) {
         this.servicoGeral = servicoGeral;
-    }
-
-    public Reserva getReservaCliente() {
-        return reservaCliente;
-    }
-
-    public void setReservaCliente(Reserva reservaCliente) {
-        this.reservaCliente = reservaCliente;
-    }
-
-    public Estadia getEstadiaCliente() {
-        return estadiaCliente;
-    }
-
-    public void setEstadiaCliente(Estadia estadiaCliente) {
-        this.estadiaCliente = estadiaCliente;
-    }
+    }    
 
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "Cliente{" + "passaporte=" + passaporte + ", cartaoCredito=" + cartaoCredito + ", telefoneEmpresaCliente=" + telefoneEmpresaCliente + ", procedenciaCliente=" + procedenciaCliente + ", destinoCliente=" + destinoCliente + ", servicoGeral=" + servicoGeral + ", reservaCliente=" + reservaCliente + ", estadiaCliente=" + estadiaCliente + '}';
-    }  
+        return "Cliente{" + "passaporte=" + passaporte + ", cartaoCredito=" + cartaoCredito + ", telefoneEmpresaCliente=" + telefoneEmpresaCliente + ", procedenciaCliente=" + procedenciaCliente + ", destinoCliente=" + destinoCliente + ", servicoGeral=" + servicoGeral + '}';
+    }
+    
 }
