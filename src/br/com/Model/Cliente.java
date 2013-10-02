@@ -67,6 +67,5 @@ package br.com.Model;
     @Override
     public String toString() {
         return "Cliente{" + "passaporte=" + passaporte + ", cartaoCredito=" + cartaoCredito + ", telefoneEmpresaCliente=" + telefoneEmpresaCliente + ", procedenciaCliente=" + procedenciaCliente + ", destinoCliente=" + destinoCliente + ", servicoGeral=" + servicoGeral + '}';
-    }
-    
+    }    
 }
