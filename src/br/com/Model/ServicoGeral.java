@@ -1,4 +1,4 @@
-package br.com.Pousada;
+package br.com.Model;
 
 
 public class ServicoGeral {
