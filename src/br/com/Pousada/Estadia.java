@@ -75,11 +75,10 @@ public class Estadia {
         this.numeroPessoasEstadia = numeroPessoasEstadia;
     }
     
-    //ISTANCIAR METODO TO STRING
+    //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
         return "Estadia{" + "idEstadia=" + idEstadia + ", unidadeHabEstadia=" + unidadeHabEstadia + ", cliente=" + cliente + ", quantidadeUnidadeEstadia=" + quantidadeUnidadeEstadia + ", dataEntradaEstadia=" + dataEntradaEstadia + ", dataSaidaEstadia=" + dataSaidaEstadia + ", numeroPessoasEstadia=" + numeroPessoasEstadia + '}';
     }
-   
-}
+   }
 

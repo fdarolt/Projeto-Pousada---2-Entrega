@@ -80,7 +80,7 @@ public class Endereco {
         this.cep = cep;
     }
 
-//ISTANCIAR METODO TO STRING
+//INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
         return "Endereco{" + "rua=" + rua + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", pais=" + pais + ", cep=" + cep + '}';

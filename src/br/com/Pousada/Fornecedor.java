@@ -9,7 +9,7 @@ public class Fornecedor extends PessoaJuridica {
     public Fornecedor() {
     }
 
-    //ISTANCIAR METODOS ACESSORES
+    //INSTANCIAR METODOS ACESSORES
     public String getDescricao() {
         return descricao;
     }
@@ -18,7 +18,7 @@ public class Fornecedor extends PessoaJuridica {
         this.descricao = descricao;
     } 
      
-    //ISTANCIAR METODO TO STRING
+    //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
         return "Fornecedor{" + "descricao=" + descricao + '}';
