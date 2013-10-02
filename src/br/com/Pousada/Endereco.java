@@ -14,8 +14,7 @@ public class Endereco {
 
     //GERAR CONSTRUTOR
     public Endereco() {
-    }
-    
+    }    
     //INSTANCIAR METODOS ACESSORES
     public String getRua() {
         return rua;

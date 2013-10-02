@@ -1,4 +1,3 @@
-
 package br.com.Pousada;
 
  public class Cliente extends Pessoa {

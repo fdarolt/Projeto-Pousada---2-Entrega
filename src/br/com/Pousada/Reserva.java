@@ -1,4 +1,3 @@
-
 package br.com.Pousada;
 
 import java.util.Date;
@@ -7,106 +6,71 @@ public class Reserva {
     
     //INSTANCIAR ATRIBUTOS
     
-    private int id;
-    private String nomeReserva;
-    private String cartaoCredito;
-    private Date dataEntrada;
-    private Date dataSaida;
-    private int numeroPessoas;
-    private int numeroUnidades;
-    private Endereco enderecoReserva;
-    private String telefoneReserva;
-    private String emailReserva;
+    private int idEstadiaReserva;
+    private UnidadeHabitacional unidadeHabReserva;
+    private Cliente cliente;    
+    private Date dataEntradaReserva;
+    private Date dataSaidaReserva;
+    private int numeroPessoasReserva;   
+    
     //GERAR CONSTRUTOR
     public Reserva() {
     }
 
     //INSTANCIAR METODOS ACESSORES
-    public int getId() {
-        return id;
+    public int getIdEstadiaReserva() {
+        return idEstadiaReserva;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdEstadiaReserva(int idEstadiaReserva) {
+        this.idEstadiaReserva = idEstadiaReserva;
     }
 
-    public String getNomeReserva() {
-        return nomeReserva;
+    public UnidadeHabitacional getUnidadeHabReserva() {
+        return unidadeHabReserva;
     }
 
-    public void setNomeReserva(String nomeReserva) {
-        this.nomeReserva = nomeReserva;
+    public void setUnidadeHabReserva(UnidadeHabitacional unidadeHabReserva) {
+        this.unidadeHabReserva = unidadeHabReserva;
     }
 
-    public String getCartaoCredito() {
-        return cartaoCredito;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setCartaoCredito(String cartaoCredito) {
-        this.cartaoCredito = cartaoCredito;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public Date getDataEntrada() {
-        return dataEntrada;
+    public Date getDataEntradaReserva() {
+        return dataEntradaReserva;
     }
 
-    public void setDataEntrada(Date dataEntrada) {
-        this.dataEntrada = dataEntrada;
+    public void setDataEntradaReserva(Date dataEntradaReserva) {
+        this.dataEntradaReserva = dataEntradaReserva;
     }
 
-    public Date getDataSaida() {
-        return dataSaida;
+    public Date getDataSaidaReserva() {
+        return dataSaidaReserva;
     }
 
-    public void setDataSaida(Date dataSaida) {
-        this.dataSaida = dataSaida;
+    public void setDataSaidaReserva(Date dataSaidaReserva) {
+        this.dataSaidaReserva = dataSaidaReserva;
     }
 
-    public int getNumeroPessoas() {
-        return numeroPessoas;
+    public int getNumeroPessoasReserva() {
+        return numeroPessoasReserva;
     }
 
-    public void setNumeroPessoas(int numeroPessoas) {
-        this.numeroPessoas = numeroPessoas;
+    public void setNumeroPessoasReserva(int numeroPessoasReserva) {
+        this.numeroPessoasReserva = numeroPessoasReserva;
     }
-
-    public int getNumeroUnidades() {
-        return numeroUnidades;
-    }
-
-    public void setNumeroUnidades(int numeroUnidades) {
-        this.numeroUnidades = numeroUnidades;
-    }    
-
-    public Endereco getEnderecoReserva() {
-        return enderecoReserva;
-    }
-
-    public void setEnderecoReserva(Endereco enderecoReserva) {
-        this.enderecoReserva = enderecoReserva;
-    }
-
-    public String getTelefoneReserva() {
-        return telefoneReserva;
-    }
-
-    public void setTelefoneReserva(String telefoneReserva) {
-        this.telefoneReserva = telefoneReserva;
-    }
-
-    public String getEmailReserva() {
-        return emailReserva;
-    }
-
-    public void setEmailReserva(String emailReserva) {
-        this.emailReserva = emailReserva;
-    }
-
+   
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "Reserva{" + "id=" + id + ", nomeReserva=" + nomeReserva + ", cartaoCredito=" + cartaoCredito + ", dataEntrada=" + dataEntrada + ", dataSaida=" + dataSaida + ", numeroPessoas=" + numeroPessoas + ", numeroUnidades=" + numeroUnidades + ", enderecoReserva=" + enderecoReserva + ", telefoneReserva=" + telefoneReserva + ", emailReserva=" + emailReserva + '}';
+        return "Reserva{" + "idEstadiaReserva=" + idEstadiaReserva + ", unidadeHabReserva=" + unidadeHabReserva + ", cliente=" + cliente + ", dataEntradaReserva=" + dataEntradaReserva + ", dataSaidaReserva=" + dataSaidaReserva + ", numeroPessoasReserva=" + numeroPessoasReserva + '}';
     }
    
-    
+   
 }

@@ -1,4 +1,3 @@
-
 package br.com.Pousada;
 
 public class PessoaJuridica extends Pessoa {
@@ -8,11 +7,16 @@ public class PessoaJuridica extends Pessoa {
     private String cnpj;    
     private String pessoaContatoEmpresa;
     
-    //GERAR CONSTRUTOR
-    
-    
+     //GERAR CONSTRUTOR
+    public PessoaJuridica() {
+    }
+        
     //INSTANCIAR METODOS ACESSORES
-    
-    //INSTANCIAR METODO TO STRING
-    
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
 }

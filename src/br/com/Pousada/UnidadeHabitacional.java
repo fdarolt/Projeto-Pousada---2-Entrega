@@ -1,4 +1,3 @@
-
 package br.com.Pousada;
 
 
@@ -6,13 +5,13 @@ public class UnidadeHabitacional {
     
     //INSTANCIAR ATRIBUTOS 
     
-    private int id;
+    private int idUnidadeHabitacional;
     private String nomeUnidade;    
     private String categoriaUnidade;
     private String descricaoUnidade;
-    private double valorUnidade;
-    private double margemLucro;
-    private double valorFinal;
+    private double valorUnidadeUnidade;
+    private double margemLucroUnidade;
+    private double valorFinalUnidade;
     
     //GERAR CONSTRUTOR
     public UnidadeHabitacional() {
@@ -20,11 +19,11 @@ public class UnidadeHabitacional {
      
     //INSTANCIAR METODOS ACESSORES
     public int getId() {
-        return id;
+        return idUnidadeHabitacional;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idUnidadeHabitacional = idUnidadeHabitacional;
     }
 
     public String getNomeUnidade() {
@@ -54,6 +53,6 @@ public class UnidadeHabitacional {
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "UnidadeHabitacional{" + "id=" + id + ", nomeUnidade=" + nomeUnidade + ", categoriaUnidade=" + categoriaUnidade + ", descricaoUnidade=" + descricaoUnidade + '}';
+        return "UnidadeHabitacional{" + "idUnidadeHabitacional=" + idUnidadeHabitacional + ", nomeUnidade=" + nomeUnidade + ", categoriaUnidade=" + categoriaUnidade + ", descricaoUnidade=" + descricaoUnidade + '}';
     }
 }
