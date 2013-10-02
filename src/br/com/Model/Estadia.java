@@ -17,7 +17,7 @@ public class Estadia {
     public Estadia() {
     }
     
-    //ISTANCIAR METODOS ACESSORES
+    //INSTANCIAR METODOS ACESSORES
     public int getIdEstadia() {
         return idEstadia;
     }

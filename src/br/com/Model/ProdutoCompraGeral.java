@@ -15,8 +15,6 @@ public class ProdutoCompraGeral {
     public ProdutoCompraGeral() {
     }
     
-    
-    
     //INSTANCIAR METODOS ACESSORES
     public int getIdCompra() {
         return idCompra;

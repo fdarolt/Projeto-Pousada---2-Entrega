@@ -19,4 +19,10 @@ public class PessoaJuridica extends Pessoa {
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+    
+    //INSTANCIAR METODO TO STRING
+    @Override
+    public String toString() {
+        return "PessoaJuridica{" + "cnpj=" + cnpj + ", pessoaContatoEmpresa=" + pessoaContatoEmpresa + '}';
+    }    
 }
