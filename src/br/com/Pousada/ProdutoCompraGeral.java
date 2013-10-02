@@ -7,13 +7,16 @@ public class ProdutoCompraGeral {
     private String nomeProdutoCompra;
     private String funcionarioCompra;
     private String valorCompra;
+    private int quantidadeCompra;
     private String nomeEmpresaCompra;
     
     
     //GERAR CONSTRUTOR
     public ProdutoCompraGeral() {
     }
-
+    
+    
+    
     //INSTANCIAR METODOS ACESSORES
     public int getIdCompra() {
         return idCompra;
@@ -47,6 +50,14 @@ public class ProdutoCompraGeral {
         this.valorCompra = valorCompra;
     }
 
+    public double getQuantidadeCompra() {
+        return quantidadeCompra;
+    }
+
+    public void setQuantidadeCompra(int quantidadeCompra) {
+        this.quantidadeCompra = quantidadeCompra;
+    }
+
     public String getNomeEmpresaCompra() {
         return nomeEmpresaCompra;
     }
@@ -54,10 +65,11 @@ public class ProdutoCompraGeral {
     public void setNomeEmpresaCompra(String nomeEmpresaCompra) {
         this.nomeEmpresaCompra = nomeEmpresaCompra;
     }
-
+   
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "ProdutoCompraGeral{" + "idCompra=" + idCompra + ", nomeProdutoCompra=" + nomeProdutoCompra + ", funcionarioCompra=" + funcionarioCompra + ", valorCompra=" + valorCompra + ", nomeEmpresaCompra=" + nomeEmpresaCompra + '}';
+        return "ProdutoCompraGeral{" + "idCompra=" + idCompra + ", nomeProdutoCompra=" + nomeProdutoCompra + ", funcionarioCompra=" + funcionarioCompra + ", valorCompra=" + valorCompra + ", quantidadeCompra=" + quantidadeCompra + ", nomeEmpresaCompra=" + nomeEmpresaCompra + '}';
     }
+   
 }

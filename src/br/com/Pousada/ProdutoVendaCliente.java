@@ -10,6 +10,7 @@ public class ProdutoVendaCliente {
     private String nomeProdutoVCliente;
     private String compradorProdutoVCliente;
     private String valorInicialProdutoVCliente;
+    private int quantidadeProduto;
     private String margemLucroProdutoVCliente;
     private String valorFinalProdutoVCliente;   
     
@@ -50,6 +51,14 @@ public class ProdutoVendaCliente {
         this.valorInicialProdutoVCliente = valorInicialProdutoVCliente;
     }
 
+    public int getQuantidadeProduto() {
+        return quantidadeProduto;
+    }
+
+    public void setQuantidadeProduto(int quantidadeProduto) {
+        this.quantidadeProduto = quantidadeProduto;
+    }
+
     public String getMargemLucroProdutoVCliente() {
         return margemLucroProdutoVCliente;
     }
@@ -65,10 +74,11 @@ public class ProdutoVendaCliente {
     public void setValorFinalProdutoVCliente(String valorFinalProdutoVCliente) {
         this.valorFinalProdutoVCliente = valorFinalProdutoVCliente;
     }
-
+   
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "ProdutoVendaCliente{" + "idVenda=" + idVenda + ", nomeProdutoVCliente=" + nomeProdutoVCliente + ", compradorProdutoVCliente=" + compradorProdutoVCliente + ", valorInicialProdutoVCliente=" + valorInicialProdutoVCliente + ", margemLucroProdutoVCliente=" + margemLucroProdutoVCliente + ", valorFinalProdutoVCliente=" + valorFinalProdutoVCliente + '}';
+        return "ProdutoVendaCliente{" + "idVenda=" + idVenda + ", nomeProdutoVCliente=" + nomeProdutoVCliente + ", compradorProdutoVCliente=" + compradorProdutoVCliente + ", valorInicialProdutoVCliente=" + valorInicialProdutoVCliente + ", quantidadeProduto=" + quantidadeProduto + ", margemLucroProdutoVCliente=" + margemLucroProdutoVCliente + ", valorFinalProdutoVCliente=" + valorFinalProdutoVCliente + '}';
     }
+   
 }

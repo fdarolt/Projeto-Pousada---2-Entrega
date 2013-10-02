@@ -7,7 +7,8 @@ public class Estadia {
     //ISTANCIAR ATRIBUTOS 
     private int idEstadia;
     private UnidadeHabitacional unidadeHabEstadia;
-    private Cliente cliente;    
+    private Cliente cliente;
+    private int quantidadeUnidadeEstadia;
     private Date dataEntradaEstadia;
     private Date dataSaidaEstadia;
     private int numeroPessoasEstadia;
@@ -38,8 +39,17 @@ public class Estadia {
     }
 
     public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+        this.cliente = cliente;        
     }
+
+    public int getQuantidadeUnidadeEstadia() {
+        return quantidadeUnidadeEstadia;
+    }
+
+    public void setQuantidadeUnidadeEstadia(int quantidadeUnidadeEstadia) {
+        this.quantidadeUnidadeEstadia = quantidadeUnidadeEstadia;
+    }
+    
 
     public Date getDataEntradaEstadia() {
         return dataEntradaEstadia;
@@ -68,7 +78,8 @@ public class Estadia {
     //ISTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "Estadia{" + "idEstadia=" + idEstadia + ", unidadeHabEstadia=" + unidadeHabEstadia + ", cliente=" + cliente + ", dataEntradaEstadia=" + dataEntradaEstadia + ", dataSaidaEstadia=" + dataSaidaEstadia + ", numeroPessoasEstadia=" + numeroPessoasEstadia + '}';
-    }   
+        return "Estadia{" + "idEstadia=" + idEstadia + ", unidadeHabEstadia=" + unidadeHabEstadia + ", cliente=" + cliente + ", quantidadeUnidadeEstadia=" + quantidadeUnidadeEstadia + ", dataEntradaEstadia=" + dataEntradaEstadia + ", dataSaidaEstadia=" + dataSaidaEstadia + ", numeroPessoasEstadia=" + numeroPessoasEstadia + '}';
+    }
+   
 }
 

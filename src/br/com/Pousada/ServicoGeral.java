@@ -9,6 +9,7 @@ public class ServicoGeral {
     private String nomenclatura;
     private String descricao;
     private double valorInicialServico;
+    private int quantidadeServico;
     private double margemLucroValorServico;
     private double valorFinalServico;
     
@@ -17,11 +18,11 @@ public class ServicoGeral {
     }
     
     //INSTANCIAR METODOS ACESSORES
-    public int getId() {
+    public int getIdServicoGeral() {
         return idServicoGeral;
     }
 
-    public void setId(int id) {
+    public void setIdServicoGeral(int idServicoGeral) {
         this.idServicoGeral = idServicoGeral;
     }
 
@@ -49,6 +50,14 @@ public class ServicoGeral {
         this.valorInicialServico = valorInicialServico;
     }
 
+    public int getQuantidadeServico() {
+        return quantidadeServico;
+    }
+
+    public void setQuantidadeServico(int quantidadeServico) {
+        this.quantidadeServico = quantidadeServico;
+    }
+
     public double getMargemLucroValorServico() {
         return margemLucroValorServico;
     }
@@ -64,10 +73,11 @@ public class ServicoGeral {
     public void setValorFinalServico(double valorFinalServico) {
         this.valorFinalServico = valorFinalServico;
     }
-
+   
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "ServicoGeral{" + "idServicoGeral=" + idServicoGeral + ", nomenclatura=" + nomenclatura + ", descricao=" + descricao + ", valorInicialServico=" + valorInicialServico + ", margemLucroValorServico=" + margemLucroValorServico + ", valorFinalServico=" + valorFinalServico + '}';
-    }        
+        return "ServicoGeral{" + "idServicoGeral=" + idServicoGeral + ", nomenclatura=" + nomenclatura + ", descricao=" + descricao + ", valorInicialServico=" + valorInicialServico + ", quantidadeServico=" + quantidadeServico + ", margemLucroValorServico=" + margemLucroValorServico + ", valorFinalServico=" + valorFinalServico + '}';
+    }
+         
 }

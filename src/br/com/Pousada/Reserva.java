@@ -8,7 +8,8 @@ public class Reserva {
     
     private int idEstadiaReserva;
     private UnidadeHabitacional unidadeHabReserva;
-    private Cliente cliente;    
+    private Cliente cliente;
+    private int quantidadeUnidadeReserva;
     private Date dataEntradaReserva;
     private Date dataSaidaReserva;
     private int numeroPessoasReserva;   
@@ -42,6 +43,14 @@ public class Reserva {
         this.cliente = cliente;
     }
 
+    public int getQuantidadeUnidadeReserva() {
+        return quantidadeUnidadeReserva;
+    }
+
+    public void setQuantidadeUnidadeReserva(int quantidadeUnidadeReserva) {
+        this.quantidadeUnidadeReserva = quantidadeUnidadeReserva;
+    }
+
     public Date getDataEntradaReserva() {
         return dataEntradaReserva;
     }
@@ -66,11 +75,13 @@ public class Reserva {
         this.numeroPessoasReserva = numeroPessoasReserva;
     }
    
+   
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "Reserva{" + "idEstadiaReserva=" + idEstadiaReserva + ", unidadeHabReserva=" + unidadeHabReserva + ", cliente=" + cliente + ", dataEntradaReserva=" + dataEntradaReserva + ", dataSaidaReserva=" + dataSaidaReserva + ", numeroPessoasReserva=" + numeroPessoasReserva + '}';
+        return "Reserva{" + "idEstadiaReserva=" + idEstadiaReserva + ", unidadeHabReserva=" + unidadeHabReserva + ", cliente=" + cliente + ", quantidadeUnidadeReserva=" + quantidadeUnidadeReserva + ", dataEntradaReserva=" + dataEntradaReserva + ", dataSaidaReserva=" + dataSaidaReserva + ", numeroPessoasReserva=" + numeroPessoasReserva + '}';
     }
+   
    
    
 }
