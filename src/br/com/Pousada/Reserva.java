@@ -13,6 +13,7 @@ public class Reserva {
     private Date dataEntrada;
     private Date dataSaida;
     private int numeroPessoas;
+    private int numeroUnidades;
     private Endereco enderecoReserva;
     private String telefoneReserva;
     private String emailReserva;
@@ -69,6 +70,14 @@ public class Reserva {
         this.numeroPessoas = numeroPessoas;
     }
 
+    public int getNumeroUnidades() {
+        return numeroUnidades;
+    }
+
+    public void setNumeroUnidades(int numeroUnidades) {
+        this.numeroUnidades = numeroUnidades;
+    }    
+
     public Endereco getEnderecoReserva() {
         return enderecoReserva;
     }
@@ -96,7 +105,8 @@ public class Reserva {
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "Reserva{" + "id=" + id + ", nomeReserva=" + nomeReserva + ", cartaoCredito=" + cartaoCredito + ", dataEntrada=" + dataEntrada + ", dataSaida=" + dataSaida + ", numeroPessoas=" + numeroPessoas + ", enderecoReserva=" + enderecoReserva + ", telefoneReserva=" + telefoneReserva + ", emailReserva=" + emailReserva + '}';
+        return "Reserva{" + "id=" + id + ", nomeReserva=" + nomeReserva + ", cartaoCredito=" + cartaoCredito + ", dataEntrada=" + dataEntrada + ", dataSaida=" + dataSaida + ", numeroPessoas=" + numeroPessoas + ", numeroUnidades=" + numeroUnidades + ", enderecoReserva=" + enderecoReserva + ", telefoneReserva=" + telefoneReserva + ", emailReserva=" + emailReserva + '}';
     }
+   
     
 }
