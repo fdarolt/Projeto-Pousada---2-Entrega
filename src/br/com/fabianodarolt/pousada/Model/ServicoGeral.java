@@ -1,4 +1,4 @@
-package br.com.Model;
+package br.com.fabianodarolt.pousada.Model;
 
 
 public class ServicoGeral {
