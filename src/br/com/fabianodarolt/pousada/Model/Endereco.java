@@ -3,6 +3,7 @@ package br.com.fabianodarolt.pousada.Model;
 public class Endereco {
 
     //INSTANCIAR ATRIBUTOS
+    private int id;
     private String rua;
     private String numero;
     private String complemento;
@@ -14,8 +15,9 @@ public class Endereco {
 
     //GERAR CONSTRUTOR
     public Endereco() {
-    }    
+    }
     //INSTANCIAR METODOS ACESSORES
+
     public String getRua() {
         return rua;
     }

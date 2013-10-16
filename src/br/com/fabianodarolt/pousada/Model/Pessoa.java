@@ -13,7 +13,7 @@ public abstract class Pessoa {
     private String telefoneResindecial;
     private String telefoneCelular;
     private String email;
-    
+   
     //GERAR CONSTRUTOR
     public Pessoa() {
     } 
