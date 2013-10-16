@@ -8,6 +8,8 @@ public class Funcionario extends Pessoa {
     private String Salario;
     private Date dataAdmissao;
     private String funcao;
+    private String login;
+    private String senha;
     
     //GERAR CONSTRUTOR
     public Funcionario() {
@@ -37,11 +39,30 @@ public class Funcionario extends Pessoa {
     public void setFuncao(String funcao) {
         this.funcao = funcao;
     }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
     
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "Funcionario{" + "Salario=" + Salario + ", dataAdmissao=" + dataAdmissao + ", funcao=" + funcao + '}';
+        return "Funcionario{" + "Salario=" + Salario + ", dataAdmissao=" + dataAdmissao + 
+                ", funcao=" + funcao + ", login=" + login + ", senha=" + senha + '}';
     }
+    
     
 }
