@@ -34,7 +34,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="painelLogin" alignment="0" max="32767" attributes="0"/>
-              <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+              <Component id="painelRolagem" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -42,7 +42,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="painelLogin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="365" max="32767" attributes="0"/>
+                  <Component id="painelRolagem" pref="365" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -78,7 +78,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+        <Container class="javax.swing.JScrollPane" name="painelRolagem">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
         </Container>

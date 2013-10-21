@@ -15,7 +15,7 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
 
     private static final String INSERT = "insert into funcionario (nome, sexo, datanascimento, rg, cpf"
             + "endereco_id, email, salario, dataadmissao,funcao,login,senha) values (?,?,?,?,?,?,?,?,?,?,?,?);";
-    private static final String LIST = "select * from funcionario;";
+    private static final String LIST = "select * from funcionario, endereco where  funcionario.endereco_id = endereco.id;";
     private static final String REMOVE = "delete from funcionario where id = ?;";
     private static final String UPDATE = "update funcionario set nome =?,sexo=?,"
             + "datanascimento=?,rg=?,cpf=?,rua=?,numero=?,complemento=?,bairro=?,cidade=?,estado=?,pais=?,"

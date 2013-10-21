@@ -11,8 +11,8 @@ import javax.swing.JOptionPane;
 
 public class EnderecoDAOImplements implements EnderecoDAO {
 
-    private static final String INSERT = "insert intop endereco "
-            + "(rua,numero,complemento,bairro,cidade,estado,pais,cep) values (?,?,?,?,?,?,?,?,);";
+    private static final String INSERT = "insert into endereco "
+            + "(rua,numero,complemento,bairro,cidade,estado,pais,cep) values (?,?,?,?,?,?,?,?);";
 
     private int inserir(Endereco e) {
         int status = -1;
@@ -22,6 +22,8 @@ public class EnderecoDAOImplements implements EnderecoDAO {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS );
             pstm.setString(1, e.getRua());
+            pstm.setString(2, e.getNumero());
+            
             pstm.execute();
             try (ResultSet rs = pstm.getGeneratedKeys()) {
                 rs.next();

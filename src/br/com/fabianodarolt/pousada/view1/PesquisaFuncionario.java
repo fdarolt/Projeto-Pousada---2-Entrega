@@ -4,17 +4,27 @@
  */
 package br.com.fabianodarolt.pousada.view1;
 
+import br.com.fabianodarolt.pousada.Controller.FuncionarioController;
+import br.com.fabianodarolt.pousada.Model.Funcionario;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Fabiano
  */
 public class PesquisaFuncionario extends javax.swing.JFrame {
+    
+    private JTable tabela;
+    private DefaultTableModel modelo = new DefaultTableModel();
 
     /**
      * Creates new form PesquisaFuncionario
      */
     public PesquisaFuncionario() {
         initComponents();
+        criaJTable();
+        painelRolagem.setViewportView(tabela);
     }
 
     /**
@@ -28,7 +38,7 @@ public class PesquisaFuncionario extends javax.swing.JFrame {
 
         painelFundo = new javax.swing.JPanel();
         painelLogin = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        painelRolagem = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,14 +61,14 @@ public class PesquisaFuncionario extends javax.swing.JFrame {
         painelFundoLayout.setHorizontalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(painelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(painelRolagem, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         painelFundoLayout.setVerticalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelFundoLayout.createSequentialGroup()
                 .addComponent(painelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
+                .addComponent(painelRolagem, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
         );
 
         painelLogin.getAccessibleContext().setAccessibleName("");
@@ -103,8 +113,51 @@ public class PesquisaFuncionario extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel painelFundo;
     private javax.swing.JPanel painelLogin;
+    private javax.swing.JScrollPane painelRolagem;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+     private void criaJTable() {
+        tabela = new JTable(modelo);
+        modelo.addColumn("Código");
+        modelo.addColumn("Nome");
+        modelo.addColumn("CPF");
+        modelo.addColumn("Telefone");
+        modelo.addColumn("Sexo");
+        modelo.addColumn("Usuário");
+        preencherJTable();
+    }
+
+    private void preencherJTable() {
+        FuncionarioController uc = new FuncionarioController();
+        for (Funcionario f : uc.listarTodos()) {
+            modelo.addRow(new Object[]{
+                    f.getId(),
+                    f.getNome(),
+                    f.getSexo(),
+                    f.getDataNascimento(),
+                    f.getRg(),
+                    f.getCpf(),
+                    f.getEndereco().getIdEndereco(),
+                    f.getEndereco().getRua(),
+                    f.getEndereco().getNumero(),
+                    f.getEndereco().getComplemento(),
+                    f.getEndereco().getBairro(),
+                    f.getEndereco().getCidade(),
+                    f.getEndereco().getEstado(),
+                    f.getEndereco().getPais(),
+                    f.getEndereco().getCep(),
+                    f.getTelefoneResindecial(),
+                    f.getTelefoneCelular(),
+                    f.getEmail(),
+                    f.getSalario(),
+                    f.getDataAdmissao(),
+                    f.getFuncao(),
+                    f.getLogin(),
+                    f.getSenha()});
+        }
+}
 }

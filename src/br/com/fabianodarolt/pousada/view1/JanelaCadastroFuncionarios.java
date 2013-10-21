@@ -103,18 +103,22 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         txfoto = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         painelCadastroFuncionario.setBackground(new java.awt.Color(204, 204, 204));
-        painelCadastroFuncionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Funcionário", 0, 0, new java.awt.Font("Arial Black", 0, 14))); // NOI18N
+        painelCadastroFuncionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Funcionário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 14))); // NOI18N
+        painelCadastroFuncionario.setLayout(null);
 
         txPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txPesquisarActionPerformed(evt);
             }
         });
+        painelCadastroFuncionario.add(txPesquisar);
+        txPesquisar.setBounds(334, 73, 188, 20);
 
         btPesquisar.setText("Pesquisar");
+        painelCadastroFuncionario.add(btPesquisar);
+        btPesquisar.setBounds(540, 72, 85, 23);
 
         btAdicionar.setText("Adicionar");
         btAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +126,8 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                 btAdicionarActionPerformed(evt);
             }
         });
+        painelCadastroFuncionario.add(btAdicionar);
+        btAdicionar.setBounds(334, 106, 85, 23);
 
         btEditar.setText("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +135,8 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                 btEditarActionPerformed(evt);
             }
         });
+        painelCadastroFuncionario.add(btEditar);
+        btEditar.setBounds(437, 106, 85, 23);
 
         btEliminar.setText("Eliminar");
         btEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,40 +144,8 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                 btEliminarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout painelCadastroFuncionarioLayout = new javax.swing.GroupLayout(painelCadastroFuncionario);
-        painelCadastroFuncionario.setLayout(painelCadastroFuncionarioLayout);
-        painelCadastroFuncionarioLayout.setHorizontalGroup(
-            painelCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelCadastroFuncionarioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(painelCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCadastroFuncionarioLayout.createSequentialGroup()
-                        .addComponent(btAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCadastroFuncionarioLayout.createSequentialGroup()
-                        .addComponent(txPesquisar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        painelCadastroFuncionarioLayout.setVerticalGroup(
-            painelCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelCadastroFuncionarioLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
-                .addGroup(painelCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPesquisar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(painelCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAdicionar)
-                    .addComponent(btEliminar)
-                    .addComponent(btEditar))
-                .addContainerGap())
-        );
+        painelCadastroFuncionario.add(btEliminar);
+        btEliminar.setBounds(540, 106, 85, 23);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Nome.:");
@@ -436,7 +412,7 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                 .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(txPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
@@ -533,7 +509,7 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                 .addGroup(tpCadastroProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txfoto, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         tpCadastroFundo.addTab("Cadastro Profissional", tpCadastroProfissional);
@@ -550,9 +526,9 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(painelCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(painelCadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tpCadastroFundo))
+                .addComponent(tpCadastroFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -587,35 +563,8 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
     private void txPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPesquisarActionPerformed
         // TODO add your handling code here:
         String nome = txPesquisar.getText();
-        FuncionarioController fc = new FuncionarioController();
-        fc.listByNome(nome);
-        //metodo para limpar tabela
-        modelo.setNumRows(0);
-        for (Funcionario f : fc.listByNome(nome)) {
-            modelo.addRow(new Object[]{
-                f.getId(),
-                f.getNome(),
-                f.getSexo(),
-                f.getDataNascimento(),
-                f.getRg(),
-                f.getCpf(),
-                f.getEndereco().getRua(),
-                f.getEndereco().getNumero(),
-                f.getEndereco().getComplemento(),
-                f.getEndereco().getBairro(),
-                f.getEndereco().getCidade(),
-                f.getEndereco().getEstado(),
-                f.getEndereco().getPais(),
-                f.getEndereco().getCep(),
-                f.getTelefoneResindecial(),
-                f.getTelefoneCelular(),
-                f.getEmail(),
-                f.getSalario(),
-                f.getDataAdmissao(),
-                f.getFuncao(),
-                f.getLogin(),
-                f.getSenha()});
-        }
+        
+       
 
     }//GEN-LAST:event_txPesquisarActionPerformed
 
@@ -627,6 +576,12 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         Endereco en = new Endereco();
 
         en.setRua(txRua.getText());
+        en.setNumero(Integer.parseInt(txNumero.getText()));
+        en.setComplemento(txComplemento.getText());
+        en.setBairro(txBairro.getText());
+        en.setCidade(txCidade.getText());
+        en.setPais(txPais.getText());
+        en.setCep(txCEP.getText());
         EnderecoController ec = new EnderecoController();
         en.setIdEndereco(ec.salvar(en));
 
@@ -652,18 +607,7 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao converter a data");
         }
         f.setRg(txRG.getText());
-        f.setCpf(txCPF.getText());
-        
-
-
-//        f.setEndereco(null);
-//        f.setEndereco(null);
-//        f.setEndereco(null);
-//        f.setEndereco(null);
-//        f.setEndereco(null);
-//        f.setEndereco(null);
-//        f.setEndereco(null);
-
+        f.setCpf(txCPF.getText());      
         f.setTelefoneResindecial(txTelefoneRes.getText());
         f.setTelefoneCelular(txTelefoneCel.getText());
         f.setEmail(txEmail.getText());
@@ -691,6 +635,7 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                     f.getDataNascimento(),
                     f.getRg(),
                     f.getCpf(),
+                    f.getEndereco().getIdEndereco(),
                     f.getEndereco().getRua(),
                     f.getEndereco().getNumero(),
                     f.getEndereco().getComplemento(),
@@ -720,6 +665,7 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                     f.getDataNascimento(),
                     f.getRg(),
                     f.getCpf(),
+                    f.getEndereco().getIdEndereco(),
                     f.getEndereco().getRua(),
                     f.getEndereco().getNumero(),
                     f.getEndereco().getComplemento(),
