@@ -6,14 +6,14 @@ package br.com.fabianodarolt.pousada.view1;
 
 /**
  *
- * @author guest01
+ * @author Fabiano
  */
-public class JanelaPrincipal extends javax.swing.JFrame {
+public class JanelaCadastroGeral extends javax.swing.JFrame {
 
     /**
-     * Creates new form JanelaPrincipal
+     * Creates new form JanelaCadastroGeral
      */
-    public JanelaPrincipal() {
+    public JanelaCadastroGeral() {
         initComponents();
     }
 
@@ -26,18 +26,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btAdministrador1 = new javax.swing.JButton();
-        btAdministrador2 = new javax.swing.JButton();
         painelFundo = new javax.swing.JPanel();
         painelLogin = new javax.swing.JPanel();
-        btPousada = new javax.swing.JButton();
-        brAdministrador = new javax.swing.JButton();
-        btFuncionario = new javax.swing.JButton();
-        btCadastro = new javax.swing.JButton();
-
-        btAdministrador1.setText("Administrador");
-
-        btAdministrador2.setText("Administrador");
+        btFuncionarios = new javax.swing.JButton();
+        brFornecedores = new javax.swing.JButton();
+        btClientes = new javax.swing.JButton();
+        btProdutos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,23 +42,28 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         painelLogin.setLayout(painelLoginLayout);
         painelLoginLayout.setHorizontalGroup(
             painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
         painelLoginLayout.setVerticalGroup(
             painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 101, Short.MAX_VALUE)
         );
 
-        btPousada.setText("Pousada");
-
-        brAdministrador.setText("Administrador");
-
-        btFuncionario.setText("Funcionário");
-
-        btCadastro.setText("Cadastros");
-        btCadastro.addActionListener(new java.awt.event.ActionListener() {
+        btFuncionarios.setText("Funcionários");
+        btFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastroActionPerformed(evt);
+                btFuncionariosActionPerformed(evt);
+            }
+        });
+
+        brFornecedores.setText("Fornecedores");
+
+        btClientes.setText("Clientes");
+
+        btProdutos.setText("Produtos");
+        btProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btProdutosActionPerformed(evt);
             }
         });
 
@@ -75,13 +74,13 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             .addComponent(painelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(painelFundoLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addComponent(btPousada, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(brAdministrador)
+                .addComponent(brFornecedores)
                 .addGap(18, 18, 18)
-                .addComponent(btFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painelFundoLayout.setVerticalGroup(
@@ -90,40 +89,53 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addComponent(painelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(brAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPousada, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(brFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        painelLogin.getAccessibleContext().setAccessibleName("Cadastro Geral");
 
         getContentPane().add(painelFundo, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroActionPerformed
+    private void btProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProdutosActionPerformed
+        // TODO add your handling code here:
+
+        //Estanciar Janela Principal
+        JanelaPrincipal jp = new JanelaPrincipal();
+        //Centrar Janela
+        jp.setLocationRelativeTo(null);
+        //Maximizar janela
+        jp.setExtendedState(jp.MAXIMIZED_BOTH);
+        //Tornar Visivel
+        jp.setVisible(true);
+
+    }//GEN-LAST:event_btProdutosActionPerformed
+
+    private void btFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFuncionariosActionPerformed
         // TODO add your handling code here:
         
-         //Estanciar Janela Principal
-        JanelaCadastroGeral jp = new JanelaCadastroGeral();
+        //Estanciar Janela Principal
+        JanelaCadastroFuncionarios jp = new JanelaCadastroFuncionarios();
         //Centrar Janela
         jp.setLocationRelativeTo(null);
         //Maximizar janela
         //jp.setExtendedState(jp.MAXIMIZED_BOTH);
         //Tornar Visivel
         jp.setVisible(true);
-        
-    }//GEN-LAST:event_btCadastroActionPerformed
+    }//GEN-LAST:event_btFuncionariosActionPerformed
 
-    
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brAdministrador;
-    private javax.swing.JButton btAdministrador1;
-    private javax.swing.JButton btAdministrador2;
-    private javax.swing.JButton btCadastro;
-    private javax.swing.JButton btFuncionario;
-    private javax.swing.JButton btPousada;
+    private javax.swing.JButton brFornecedores;
+    private javax.swing.JButton btClientes;
+    private javax.swing.JButton btFuncionarios;
+    private javax.swing.JButton btProdutos;
     private javax.swing.JPanel painelFundo;
     private javax.swing.JPanel painelLogin;
     // End of variables declaration//GEN-END:variables

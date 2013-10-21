@@ -2,7 +2,7 @@ package br.com.fabianodarolt.pousada.Model;
 
 import java.util.Date;
 
-public class Funcionario extends Pessoa {
+public class Funcionario extends PessoaFisica {
 
     //INSTANCIAR ATRIBUTOS 
     private String Salario;
@@ -10,6 +10,7 @@ public class Funcionario extends Pessoa {
     private String funcao;
     private String login;
     private String senha;
+    private Endereco endereco;
     
     //GERAR CONSTRUTOR
     public Funcionario() {
@@ -55,14 +56,17 @@ public class Funcionario extends Pessoa {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }    
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "Funcionario{" + "Salario=" + Salario + ", dataAdmissao=" + dataAdmissao + 
-                ", funcao=" + funcao + ", login=" + login + ", senha=" + senha + '}';
+        return "Funcionario{" + "Salario=" + Salario + ", dataAdmissao=" + dataAdmissao + ", funcao=" + funcao + ", login=" + login + ", senha=" + senha + ", endereco=" + endereco + '}';
     }
-    
-    
 }

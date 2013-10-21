@@ -1,6 +1,6 @@
 package br.com.fabianodarolt.pousada.Model;
 
- public class Cliente extends Pessoa {
+ public class Cliente extends PessoaFisica {
      
     //INSTANCIAR ATRIBUTOS   
     private String passaporte;    

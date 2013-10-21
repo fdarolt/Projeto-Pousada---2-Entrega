@@ -8,11 +8,11 @@ public abstract class Pessoa {
     private int id;
     private String nome;
     private String sexo;
-    private Date dataNascimento;    
-    private Endereco endereco;
-    private String telefoneResindecial;
+    private Date dataNascimento;
+    private String telefoneResidencial;
     private String telefoneCelular;
     private String email;
+    
    
     //GERAR CONSTRUTOR
     public Pessoa() {
@@ -51,20 +51,12 @@ public abstract class Pessoa {
         this.dataNascimento = dataNascimento;
     }   
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
     public String getTelefoneResindecial() {
-        return telefoneResindecial;
+        return telefoneResidencial;
     }
 
-    public void setTelefoneResindecial(String telefoneResindecial) {
-        this.telefoneResindecial = telefoneResindecial;
+    public void setTelefoneResindecial(String telefoneResidencial) {
+        this.telefoneResidencial = telefoneResidencial;
     }
 
     public String getTelefoneCelular() {
@@ -86,6 +78,7 @@ public abstract class Pessoa {
     //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "Pessoa{" + "id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", dataNascimento=" + dataNascimento + ", endereco=" + endereco + ", telefoneResindecial=" + telefoneResindecial + ", telefoneCelular=" + telefoneCelular + ", email=" + email + '}';
-    }    
+        return "Pessoa{" + "id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", dataNascimento=" + dataNascimento + ", telefoneResidencial=" + telefoneResidencial + ", telefoneCelular=" + telefoneCelular + ", email=" + email + '}';
+    }
+   
 }

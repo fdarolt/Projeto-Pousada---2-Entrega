@@ -3,9 +3,9 @@ package br.com.fabianodarolt.pousada.Model;
 public class Endereco {
 
     //INSTANCIAR ATRIBUTOS
-    private int id;
+    private int idEndereco;
     private String rua;
-    private String numero;
+    private int numero;
     private String complemento;
     private String bairro;
     private String cidade;
@@ -16,8 +16,16 @@ public class Endereco {
     //GERAR CONSTRUTOR
     public Endereco() {
     }
-    //INSTANCIAR METODOS ACESSORES
 
+    //INSTANCIAR METODOS ACESSORES
+    public int getIdEndereco() {
+        return idEndereco;
+    }
+
+    public void setIdEndereco(int idEndereco) {
+        this.idEndereco = idEndereco;
+    }
+    
     public String getRua() {
         return rua;
     }
@@ -26,11 +34,11 @@ public class Endereco {
         this.rua = rua;
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
@@ -82,9 +90,14 @@ public class Endereco {
         this.cep = cep;
     }
 
-//INSTANCIAR METODO TO STRING
+    //INSTANCIAR METODO TO STRING
     @Override
     public String toString() {
-        return "Endereco{" + "rua=" + rua + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", pais=" + pais + ", cep=" + cep + '}';
+        return "Endereco{" + "idEndereco=" + idEndereco + ", rua=" + rua + 
+                ", numero=" + numero + ", complemento=" + complemento + 
+                ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + 
+                ", pais=" + pais + ", cep=" + cep + '}';
     }
+    
+  
 }
