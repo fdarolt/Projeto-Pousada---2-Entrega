@@ -4,6 +4,9 @@
  */
 package br.com.fabianodarolt.pousada.view1;
 
+import br.com.fabianodarolt.pousada.Model.Persistencia.FuncionarioDAOImplements;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author guest01
@@ -81,15 +84,15 @@ public class JanelaLogin extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelFundoLayout.createSequentialGroup()
                         .addComponent(txSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                        .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txLogin))
+                .addGap(48, 48, 48))
         );
         painelFundoLayout.setVerticalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,18 +122,33 @@ public class JanelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
-        // TODO add your handling code here:
-        
-         //Estanciar Janela Principal
-        JanelaPrincipal jp = new JanelaPrincipal();
-        //Centrar Janela
-        jp.setLocationRelativeTo(null);
-        //Maximizar janela
-        //jp.setExtendedState(jp.MAXIMIZED_BOTH);
-        //Tornar Visivel
-        jp.setVisible(true);
-    }//GEN-LAST:event_btEntrarActionPerformed
+        // TODO add your handling code here:        
 
+//        FuncionarioDAOImplements fi = new FuncionarioDAOImplements();
+//
+//        if (fi.autenticador(txLogin.getText(), txSenha.getText()) == true) {
+//            JanelaPrincipal jp = new JanelaPrincipal();
+//            jp.setLocationRelativeTo(null);
+//            jp.setVisible(true);
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Login ou senha incorreto, tente novamente");
+//            txLogin.setText("");
+//            txSenha.setText("");
+//            txLogin.grabFocus();
+//        }
+        
+        
+       //Estanciar Janela Principal
+            JanelaPrincipal jp = new JanelaPrincipal();
+            //Centrar Janela
+            jp.setLocationRelativeTo(null);
+            //Maximizar janela
+            //jp.setExtendedState(jp.MAXIMIZED_BOTH);
+            //Tornar Visivel
+            jp.setVisible(true);
+            dispose();
+
+    }//GEN-LAST:event_btEntrarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btEntrar;

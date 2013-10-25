@@ -18,17 +18,65 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author guest01
  */
-public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
+public class FuncionarioCadastro extends javax.swing.JFrame {
 
     private JTable tabela;
     private int linhaSelecionada;
     private DefaultTableModel modelo = new DefaultTableModel();
+    
+    
+    public FuncionarioCadastro(DefaultTableModel modelo){
+        this.modelo = modelo;
+        initComponents();
+    }
 
     /**
-     * Creates new form JanelaCadastroFuncionarios
+     * Creates new form FuncionarioCadastro
      */
-    public JanelaCadastroFuncionarios() {
+    public FuncionarioCadastro(DefaultTableModel modelo, int linhaSelecionada, int idFuncionario) {
+       this.modelo = modelo;
+       this.linhaSelecionada = linhaSelecionada;
         initComponents();
+        
+        FuncionarioController fc = new FuncionarioController();
+        Funcionario f = fc.listById(idFuncionario);
+        
+        txCodigoFuncionario.setText(Integer.toString(f.getId()));
+        txNome.setText(f.getNome());
+        
+        if (f.getSexo().equals("Feminino")){
+            rbFeminino.setSelected(true);
+            }
+        if (f.getSexo().equals("Masculino")){
+            rbMasculino.setSelected(true);
+            }
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String Data = sdf.format(f.getDataNascimento());
+        txDataNascimento.setText(Data);
+        txRG.setText(f.getRg());
+        txCPF.setText(f.getCpf());
+        txCodigoEndereco.setText(Integer.toString(f.getEndereco().getIdEndereco()));
+        txRua.setText(f.getEndereco().getRua());
+        txComplemento.setText(f.getEndereco().getComplemento());
+        txBairro.setText(f.getEndereco().getBairro());
+        txCidade.setText(f.getEndereco().getCidade());
+        txEstado.setText(f.getEndereco().getEstado());
+        txPais.setText(f.getEndereco().getPais());
+        txCEP.setText(f.getEndereco().getCep());
+        txTelefoneRes.setText(f.getTelefoneResindecial());
+        txTelefoneCel.setText(f.getTelefoneCelular());
+        txEmail.setText(f.getEmail());
+        txSalario.setText(f.getSalario());      
+        
+        SimpleDateFormat sde = new SimpleDateFormat("dd/MM/yyyy");
+        String Data1 = sde.format(f.getDataAdmissao());
+        txDataAdmissao.setText(Data1);
+        
+        txFuncao.setText(f.getFuncao());
+        txLogin.setText(f.getLogin());
+        txSenha.setText(f.getSenha());
+        
     }
 
     /**
@@ -43,11 +91,9 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         grupoSexo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         painelCadastroFuncionario = new javax.swing.JPanel();
-        txPesquisar = new javax.swing.JTextField();
         btPesquisar = new javax.swing.JButton();
         btAdicionar = new javax.swing.JButton();
-        btEditar = new javax.swing.JButton();
-        btEliminar = new javax.swing.JButton();
+        btLimpar = new javax.swing.JButton();
         tpCadastroFundo = new javax.swing.JTabbedPane();
         tpCadastroPessoal = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -102,23 +148,21 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         txSenha = new javax.swing.JTextField();
         txfoto = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         painelCadastroFuncionario.setBackground(new java.awt.Color(204, 204, 204));
-        painelCadastroFuncionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Funcionário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 14))); // NOI18N
+        painelCadastroFuncionario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Funcionário", 0, 0, new java.awt.Font("Arial Black", 0, 14))); // NOI18N
         painelCadastroFuncionario.setLayout(null);
 
-        txPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        btPesquisar.setText("Pesquisar");
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txPesquisarActionPerformed(evt);
+                btPesquisarActionPerformed(evt);
             }
         });
-        painelCadastroFuncionario.add(txPesquisar);
-        txPesquisar.setBounds(334, 73, 188, 20);
-
-        btPesquisar.setText("Pesquisar");
         painelCadastroFuncionario.add(btPesquisar);
-        btPesquisar.setBounds(540, 72, 85, 23);
+        btPesquisar.setBounds(530, 110, 85, 23);
 
         btAdicionar.setText("Adicionar");
         btAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,25 +171,16 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
             }
         });
         painelCadastroFuncionario.add(btAdicionar);
-        btAdicionar.setBounds(334, 106, 85, 23);
+        btAdicionar.setBounds(330, 110, 85, 23);
 
-        btEditar.setText("Editar");
-        btEditar.addActionListener(new java.awt.event.ActionListener() {
+        btLimpar.setText("Limpar");
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditarActionPerformed(evt);
+                btLimparActionPerformed(evt);
             }
         });
-        painelCadastroFuncionario.add(btEditar);
-        btEditar.setBounds(437, 106, 85, 23);
-
-        btEliminar.setText("Eliminar");
-        btEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEliminarActionPerformed(evt);
-            }
-        });
-        painelCadastroFuncionario.add(btEliminar);
-        btEliminar.setBounds(540, 106, 85, 23);
+        painelCadastroFuncionario.add(btLimpar);
+        btLimpar.setBounds(430, 110, 85, 23);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Nome.:");
@@ -224,6 +259,11 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         });
 
         txCodigoEndereco.setEditable(false);
+        txCodigoEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txCodigoEnderecoActionPerformed(evt);
+            }
+        });
 
         txBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,32 +313,6 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                             .addComponent(txCodigoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txNome)))
                     .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(txBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(txNumero)))
-                        .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(jLabel11))
-                            .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
-                                .addGap(80, 80, 80)
-                                .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel16))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txCidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txComplemento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txCEP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel9)
@@ -309,25 +323,6 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                                 .addComponent(txCodigoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txRua)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpCadastroPessoalLayout.createSequentialGroup()
-                        .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(txTelefoneRes, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
-                                .addGap(73, 73, 73)
-                                .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15))
-                                .addGap(19, 19, 19)
-                                .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txPais)
-                                    .addComponent(txEstado))))
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(txTelefoneCel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(txRG)
@@ -344,12 +339,54 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(rbMasculino)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rbFeminino)))
+                        .addComponent(rbFeminino))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpCadastroPessoalLayout.createSequentialGroup()
+                        .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
+                                .addGap(67, 67, 67)
+                                .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(jLabel12)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txNumero)))
+                                .addGap(28, 28, 28)
+                                .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel11))
+                                .addGap(25, 25, 25))
+                            .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
+                                .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txTelefoneRes, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
+                                        .addGap(73, 73, 73)
+                                        .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel15))
+                                        .addGap(19, 19, 19)
+                                        .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txPais)
+                                            .addComponent(txEstado))))
+                                .addGap(149, 149, 149)))
+                        .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txTelefoneCel)
+                            .addComponent(txCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                            .addComponent(txComplemento, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                            .addComponent(txCEP, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))))
                 .addGap(43, 43, 43))
             .addGroup(tpCadastroPessoalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         tpCadastroPessoalLayout.setVerticalGroup(
             tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,7 +449,7 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                 .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(txPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
@@ -422,7 +459,7 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                 .addGroup(tpCadastroPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(26, 26, 26))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         tpCadastroFundo.addTab("Cadastro Pessoal", tpCadastroPessoal);
@@ -476,10 +513,10 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
                         .addGroup(tpCadastroProfissionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txDataAdmissao, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
                             .addComponent(txSalario)
                             .addComponent(txLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
-                            .addComponent(txFuncao))
+                            .addComponent(txFuncao)
+                            .addComponent(txDataAdmissao, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(135, 135, 135))))
         );
         tpCadastroProfissionalLayout.setVerticalGroup(
@@ -560,20 +597,16 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txNomeActionPerformed
 
-    private void txPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPesquisarActionPerformed
-        // TODO add your handling code here:
-        String nome = txPesquisar.getText();
-        
-       
-
-    }//GEN-LAST:event_txPesquisarActionPerformed
-
     private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
         // TODO add your handling code here:       
         //----------------------------------------------------------------------------------------------------------
        
         // Codigo para instanciar classe endereço em Funcionário
         Endereco en = new Endereco();
+        
+        if (!(txCodigoEndereco.getText().equals("") || (txCodigoEndereco.getText() == null))) {
+            en.setIdEndereco(Integer.parseInt(txCodigoEndereco.getText()));
+        }
 
         en.setRua(txRua.getText());
         en.setNumero(Integer.parseInt(txNumero.getText()));
@@ -582,6 +615,7 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         en.setCidade(txCidade.getText());
         en.setPais(txPais.getText());
         en.setCep(txCEP.getText());
+        en.setEstado(txEstado.getText());
         EnderecoController ec = new EnderecoController();
         en.setIdEndereco(ec.salvar(en));
 
@@ -589,12 +623,13 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         //--------------------------------------------------------------------------------------------------------
         //Codigo para Adicionar ao banco os Campos Preenchidos Cadastro Funcionario
         Funcionario f = new Funcionario();
-        f.setEndereco(en);
+       
         
-        if (!(txCodigoFuncionario.getText().equals("") || (txCodigoFuncionario.getText().equals(null)))) {
+        if (!(txCodigoFuncionario.getText().equals("") || (txCodigoFuncionario.getText() == null))) {
             f.setId(Integer.parseInt(txCodigoFuncionario.getText()));
         }
         f.setNome(txNome.getText());
+       
         if (rbFeminino.isSelected()) {
             f.setSexo("Feminino");
         } else if (rbMasculino.isSelected()) {
@@ -607,7 +642,8 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao converter a data");
         }
         f.setRg(txRG.getText());
-        f.setCpf(txCPF.getText());      
+        f.setCpf(txCPF.getText());
+        f.setEndereco(en);
         f.setTelefoneResindecial(txTelefoneRes.getText());
         f.setTelefoneCelular(txTelefoneCel.getText());
         f.setEmail(txEmail.getText());
@@ -688,35 +724,34 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btAdicionarActionPerformed
 
-    private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         // TODO add your handling code here:
-        //Comando para encontrar ID da pessoa
-        int linhaSelecionada = -1;
-        linhaSelecionada = tabela.getSelectedRow();
-        if (linhaSelecionada >= 0) {
-            int idUsuario = (int) tabela.getValueAt(linhaSelecionada, 0);
-            FuncionarioController uc = new FuncionarioController();
-            if (uc.remove(idUsuario)) {
-                modelo.removeRow(linhaSelecionada);
-            } else {
-                JOptionPane.showMessageDialog(null, "Nenhuma Linha Selecionada");
-            }
-        }
-    }//GEN-LAST:event_btEliminarActionPerformed
-
-    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        // TODO add your handling code here:
-//        int linhaSelecionada = -1;
-//        linhaSelecionada = tabela.getSelectedRow();
-//        if (linhaSelecionada >= 0) {
-//            int idFuncionario = (int) tabela.getValueAt(linhaSelecionada, 0);
-//            Funcionario fi = new Funcionario(modelo, linhaSelecionada, idFuncionario);
-//            fi.setVisible(true);
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Nenhuma linha foi Selecionada");
-//
-//        }
-    }//GEN-LAST:event_btEditarActionPerformed
+       
+         //Codigo para Limpar Campos de Preenchimento      
+        txCodigoFuncionario.setText("");
+        txNome.setText("");
+        grupoSexo.clearSelection();
+        txDataNascimento.setText("");
+        txRG.setText("");
+        txCPF.setText("");
+        txCodigoEndereco.setText("");
+        txRua.setText("");
+        txComplemento.setText("");
+        txBairro.setText("");
+        txCidade.setText("");
+        txEstado.setText("");
+        txPais.setText("");
+        txCEP.setText("");
+        txTelefoneRes.setText("");
+        txTelefoneCel.setText("");
+        txEmail.setText("");
+        txSalario.setText("");
+        txDataAdmissao.setText("");
+        txFuncao.setText("");
+        txLogin.setText("");
+        txSenha.setText("");
+        
+    }//GEN-LAST:event_btLimparActionPerformed
 
     private void txCodigoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txCodigoFuncionarioActionPerformed
         // TODO add your handling code here:
@@ -725,10 +760,25 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
     private void rbMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMasculinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbMasculinoActionPerformed
+
+    private void txCodigoEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txCodigoEnderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txCodigoEnderecoActionPerformed
+
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        // TODO add your handling code here:
+        
+        //Estanciar Abertura da Janela Usuario
+        FuncionarioLista fl = new FuncionarioLista();
+        //Centrar Janela na abertura
+        fl.setLocationRelativeTo(null);
+        //Tornar Janela Visivel
+        fl.setVisible(true);
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;
-    private javax.swing.JButton btEditar;
-    private javax.swing.JButton btEliminar;
+    private javax.swing.JButton btLimpar;
     private javax.swing.JButton btPesquisar;
     private javax.swing.ButtonGroup grupoSexo;
     private javax.swing.JLabel jLabel1;
@@ -779,7 +829,6 @@ public class JanelaCadastroFuncionarios extends javax.swing.JFrame {
     private javax.swing.JTextField txNome;
     private javax.swing.JTextField txNumero;
     private javax.swing.JTextField txPais;
-    private javax.swing.JTextField txPesquisar;
     private javax.swing.JTextField txRG;
     private javax.swing.JTextField txRua;
     private javax.swing.JTextField txSalario;

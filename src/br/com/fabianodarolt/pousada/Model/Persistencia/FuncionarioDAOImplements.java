@@ -1,5 +1,6 @@
 package br.com.fabianodarolt.pousada.Model.Persistencia;
 
+import br.com.fabianodarolt.pousada.Model.Endereco;
 import br.com.fabianodarolt.pousada.Model.Funcionario;
 import br.com.fabianodarolt.pousada.Model.Persistencia.DAO.FuncionarioDAO;
 import java.sql.Connection;
@@ -13,16 +14,18 @@ import javax.swing.JOptionPane;
 
 public class FuncionarioDAOImplements implements FuncionarioDAO {
 
-    private static final String INSERT = "insert into funcionario (nome, sexo, datanascimento, rg, cpf"
-            + "endereco_id, email, salario, dataadmissao,funcao,login,senha) values (?,?,?,?,?,?,?,?,?,?,?,?);";
+    private static final String INSERT = "insert into funcionario (nome, sexo, datanascimento, rg, "
+            + "cpf,endereco_id, telefoneresidencial, telefonecelular, \n" +
+"email, salario, dataadmissao,funcao,login,senha) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+    
     private static final String LIST = "select * from funcionario, endereco where  funcionario.endereco_id = endereco.id;";
     private static final String REMOVE = "delete from funcionario where id = ?;";
     private static final String UPDATE = "update funcionario set nome =?,sexo=?,"
-            + "datanascimento=?,rg=?,cpf=?,rua=?,numero=?,complemento=?,bairro=?,cidade=?,estado=?,pais=?,"
-            + "cep=?,telefoneresidencial=?,telefonecelular=?,email=?,salario=?,dataadmissao=?,"
+            + "datanascimento=?,rg=?,cpf=?, endereco_id=?,telefoneresidencial=?,telefonecelular=?,email=?,salario=?,dataadmissao=?,"
             + "funcao=?,login=?,senha=?;";
     private static final String LISTBYID = "select * from funcionario where id = ?;";
     private static final String LISTBYNOME = "select * from funcionario where nome like ?;";
+    private static final String AUTENTICA = "select login,senha from funcionario;";
 
     @Override
     public int salvar(Funcionario f) {
@@ -39,29 +42,21 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
         int retorno = -1;
         try {
             con = ConnectionFactory.getConnection();
-            pstm = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
+            pstm = con.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             pstm.setString(1, f.getNome());
             pstm.setString(2, f.getSexo());
             pstm.setDate(3, new java.sql.Date(f.getDataNascimento().getTime()));
             pstm.setString(4, f.getRg());
             pstm.setString(5, f.getCpf());
-            pstm.setInt(6, f.getId());            
-            //pstm.setString(6, f.getEndereco().getRua());
-            pstm.setInt(7, f.getEndereco().getNumero());
-            pstm.setString(8, f.getEndereco().getComplemento());
-            pstm.setString(9, f.getEndereco().getBairro());
-            pstm.setString(10, f.getEndereco().getCidade());
-            pstm.setString(11, f.getEndereco().getEstado());
-            pstm.setString(12, f.getEndereco().getPais());
-            pstm.setString(13, f.getEndereco().getCep());
-            pstm.setString(14, f.getTelefoneResindecial());
-            pstm.setString(15, f.getTelefoneCelular());
-            pstm.setString(16, f.getEmail());
-            pstm.setString(17, f.getSalario());
-            pstm.setDate(18, new java.sql.Date(f.getDataAdmissao().getTime()));
-            pstm.setString(19, f.getFuncao());
-            pstm.setString(20, f.getLogin());
-            pstm.setString(21, f.getSenha());
+            pstm.setInt(6, f.getEndereco().getIdEndereco());
+            pstm.setString(7, f.getTelefoneResindecial());
+            pstm.setString(8, f.getTelefoneCelular());
+            pstm.setString(9, f.getEmail());
+            pstm.setString(10, f.getSalario());
+            pstm.setDate(11, new java.sql.Date(f.getDataAdmissao().getTime()));
+            pstm.setString(12, f.getFuncao());
+            pstm.setString(13, f.getLogin());
+            pstm.setString(14, f.getSenha());
             pstm.execute();
 
             try (ResultSet rs = pstm.getGeneratedKeys()) {
@@ -70,7 +65,7 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao Inserir" + e);
+            JOptionPane.showMessageDialog(null, "Erro ao Inserir " + e);
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm);
@@ -93,13 +88,13 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
             status = true;
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir Funcionário" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao Excluir Funcionário " + e.getMessage());
 
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm);
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Erro ao Fechar a Conexão" + ex);
+                JOptionPane.showMessageDialog(null, "Erro ao Fechar a Conexão " + ex);
             }
         }
         return status;
@@ -111,21 +106,37 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
         PreparedStatement pstm = null;
         ResultSet rs = null;
         List<Funcionario> funcionarios = new ArrayList<>();
+        List<Endereco> endereco = new ArrayList<>();
         try {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(LIST);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 Funcionario f = new Funcionario();
+
                 f.setId(rs.getInt("id"));
                 f.setNome(rs.getString("nome"));
                 f.setSexo(rs.getString("sexo"));
                 f.setDataAdmissao(rs.getDate("datanascimento"));
                 f.setRg(rs.getString("rg"));
                 f.setCpf(rs.getString("cpf"));
-                //f.setEndereco(f.getEndereco(rs.getString("rua")));
 
+                //***********************************************************************************************
 
+                Endereco en = new Endereco();
+
+                en.setRua(rs.getString("rua"));
+                en.setNumero(Integer.parseInt(rs.getString("numero")));
+                en.setComplemento(rs.getString("complemento"));
+                en.setBairro(rs.getString("bairro"));
+                en.setCidade(rs.getString("cidade"));
+                en.setEstado(rs.getString("estado"));
+                en.setPais(rs.getString("pais"));
+                en.setCep(rs.getString("cep"));
+
+                f.setEndereco(en);
+
+                //********************************************************************************************  
 
                 f.setTelefoneResindecial(rs.getString("telefoneresidencial"));
                 f.setTelefoneCelular(rs.getString("telefonecelular"));
@@ -139,12 +150,12 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
 
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao Listar Funcionário" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao Listar Funcionário " + e.getMessage());
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm, rs);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Erro ao Fechar a conexão" + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao Fechar a conexão " + e.getMessage());
             }
         }
         return funcionarios;
@@ -168,9 +179,22 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 f.setDataAdmissao(rs.getDate("datanascimento"));
                 f.setRg(rs.getString("rg"));
                 f.setCpf(rs.getString("cpf"));
-                //f.setEndereco(f.getEndereco(rs.getString("rua")));
 
+                //***********************************************************************************************
 
+                Endereco en = new Endereco();
+
+                en.setRua(rs.getString("rua"));
+                en.setNumero(Integer.parseInt(rs.getString("numero")));
+                en.setComplemento(rs.getString("complemento"));
+                en.setBairro(rs.getString("bairro"));
+                en.setCidade(rs.getString("cidade"));
+                en.setPais(rs.getString("pais"));
+                en.setCep(rs.getString("cep"));
+
+                f.setEndereco(en);
+
+                //********************************************************************************************  
 
                 f.setTelefoneResindecial(rs.getString("telefoneresidencial"));
                 f.setTelefoneCelular(rs.getString("telefonecelular"));
@@ -183,12 +207,12 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
 
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao Listar Funcionário" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao Listar Funcionário " + e.getMessage());
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm, rs);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Erro ao fechar Conexão" + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao fechar Conexão " + e.getMessage());
             }
         }
         return f;
@@ -201,36 +225,31 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
         try {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(UPDATE);
-            pstm.setString(1, f.getNome());
+             pstm.setString(1, f.getNome());
             pstm.setString(2, f.getSexo());
             pstm.setDate(3, new java.sql.Date(f.getDataNascimento().getTime()));
             pstm.setString(4, f.getRg());
             pstm.setString(5, f.getCpf());
-            pstm.setString(6, f.getEndereco().getRua());
-            pstm.setInt(7, f.getEndereco().getNumero());
-            pstm.setString(8, f.getEndereco().getComplemento());
-            pstm.setString(9, f.getEndereco().getBairro());
-            pstm.setString(10, f.getEndereco().getCidade());
-            pstm.setString(11, f.getEndereco().getEstado());
-            pstm.setString(12, f.getEndereco().getPais());
-            pstm.setString(13, f.getEndereco().getCep());
-            pstm.setString(14, f.getTelefoneResindecial());
-            pstm.setString(15, f.getTelefoneCelular());
-            pstm.setString(16, f.getEmail());
-            pstm.setString(17, f.getSalario());
-            pstm.setDate(18, new java.sql.Date(f.getDataAdmissao().getTime()));
-            pstm.setString(19, f.getFuncao());
-            pstm.setString(20, f.getLogin());
-            pstm.setString(21, f.getSenha());
+            pstm.setInt(6, f.getEndereco().getIdEndereco());
+            pstm.setString(7, f.getTelefoneResindecial());
+            pstm.setString(8, f.getTelefoneCelular());
+            pstm.setString(9, f.getEmail());
+            pstm.setString(10, f.getSalario());
+            pstm.setDate(11, new java.sql.Date(f.getDataAdmissao().getTime()));
+            pstm.setString(12, f.getFuncao());
+            pstm.setString(13, f.getLogin());
+            pstm.setString(14, f.getSenha());
+            pstm.setInt(15, f.getId());
+            pstm.execute();
             retorno = f.getId();
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao Editar Funcionário" + e);
+            JOptionPane.showMessageDialog(null, "Erro ao Editar Funcionário " + e);
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Erro ao Fechar a Conexão" + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao Fechar a Conexão " + e.getMessage());
             }
         }
         return retorno;
@@ -255,9 +274,22 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 f.setDataAdmissao(rs.getDate("datanascimento"));
                 f.setRg(rs.getString("rg"));
                 f.setCpf(rs.getString("cpf"));
-                //f.setEndereco(f.getEndereco(rs.getString("rua")));
 
+                //***********************************************************************************************
 
+                Endereco en = new Endereco();
+
+                en.setRua(rs.getString("rua"));
+                en.setNumero(Integer.parseInt(rs.getString("numero")));
+                en.setComplemento(rs.getString("complemento"));
+                en.setBairro(rs.getString("bairro"));
+                en.setCidade(rs.getString("cidade"));
+                en.setPais(rs.getString("pais"));
+                en.setCep(rs.getString("cep"));
+
+                f.setEndereco(en);
+
+                //********************************************************************************************  
 
                 f.setTelefoneResindecial(rs.getString("telefoneresidencial"));
                 f.setTelefoneCelular(rs.getString("telefonecelular"));
@@ -270,14 +302,14 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 funcionarios.add(f);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao Pesquisar Funcionário" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao Pesquisar Funcionário " + e.getMessage());
 
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm, rs);
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Erro ao Fechar a Conexão" + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao Fechar a Conexão " + e.getMessage());
             }
         }
         return funcionarios;
@@ -287,4 +319,34 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
     public int editar(Funcionario f) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public boolean autenticador(String txLogin, String txSenha){
+        boolean autentica = false;
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        try{
+            con = ConnectionFactory.getConnection();
+            pstm = con.prepareStatement(AUTENTICA);
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                if(rs.getString("login").equals(txLogin) && rs.getString("senha").equals(txSenha)){
+                  autentica = true;
+                }
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro ao autenticar: " + e.getMessage());
+        }finally{
+            try{
+                ConnectionFactory.closeConnection(con, pstm, rs);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"Erro ao fechar conexão: " + e.getMessage());
+            }
+        }
+        return autentica;
+    }
+    
+    
+    
+    
 }

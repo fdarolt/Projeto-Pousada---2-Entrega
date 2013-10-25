@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class EnderecoDAOImplements implements EnderecoDAO {
@@ -22,7 +23,13 @@ public class EnderecoDAOImplements implements EnderecoDAO {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS );
             pstm.setString(1, e.getRua());
-            pstm.setString(2, e.getNumero());
+            pstm.setInt(2, e.getNumero());
+            pstm.setString(3, e.getComplemento());
+            pstm.setString(4, e.getBairro());
+            pstm.setString(5, e.getCidade());
+            pstm.setString(6, e.getEstado());
+            pstm.setString(7, e.getPais());
+            pstm.setString(8, e.getCep());         
             
             pstm.execute();
             try (ResultSet rs = pstm.getGeneratedKeys()) {
@@ -31,12 +38,12 @@ public class EnderecoDAOImplements implements EnderecoDAO {
             }
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Inserir um Endereço" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao Inserir um Endereço " + ex.getMessage());
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm);
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Erro ao Fechar" + ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao Fechar " + ex.getMessage());
             }
         }
         return status;
@@ -52,5 +59,30 @@ public class EnderecoDAOImplements implements EnderecoDAO {
         }
 
 
+    }
+
+    @Override
+    public int editar(Endereco e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean remove(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Endereco> listAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Endereco listById(int codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Endereco> listByNome(String rua) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -73,14 +73,14 @@ public class JanelaCadastroGeral extends javax.swing.JFrame {
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(painelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(painelFundoLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(btFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
+                .addComponent(btFuncionarios)
                 .addGap(18, 18, 18)
-                .addComponent(brFornecedores)
+                .addComponent(brFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painelFundoLayout.setVerticalGroup(
@@ -107,27 +107,20 @@ public class JanelaCadastroGeral extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         //Estanciar Janela Principal
-        JanelaPrincipal jp = new JanelaPrincipal();
+        FuncionarioLista jp = new FuncionarioLista();
         //Centrar Janela
         jp.setLocationRelativeTo(null);
         //Maximizar janela
         jp.setExtendedState(jp.MAXIMIZED_BOTH);
         //Tornar Visivel
         jp.setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_btProdutosActionPerformed
 
     private void btFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFuncionariosActionPerformed
         // TODO add your handling code here:
-        
-        //Estanciar Janela Principal
-        JanelaCadastroFuncionarios jp = new JanelaCadastroFuncionarios();
-        //Centrar Janela
-        jp.setLocationRelativeTo(null);
-        //Maximizar janela
-        //jp.setExtendedState(jp.MAXIMIZED_BOTH);
-        //Tornar Visivel
-        jp.setVisible(true);
+                
     }//GEN-LAST:event_btFuncionariosActionPerformed
 
    

@@ -35,14 +35,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="painelLogin" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                  <Component id="btFuncionarios" min="-2" pref="101" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                  <Component id="btFuncionarios" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="brFornecedores" min="-2" max="-2" attributes="0"/>
+                  <Component id="brFornecedores" min="-2" pref="99" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btClientes" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="btClientes" min="-2" pref="108" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btProdutos" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="btProdutos" min="-2" pref="102" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>

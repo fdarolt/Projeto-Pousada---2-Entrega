@@ -11,7 +11,7 @@ public class ConnectionFactory {
     //String de Conexao do MySQL
     private static final String STR_CONEXAO = "jdbc:mysql://localhost:3306/";
     //Nomeda base de dados criada no MySQL
-    private static final String DATABASE = "pousadaBD";
+    private static final String DATABASE = "pousadabd";
     //Usuario do MySQL
     private static final String USER = "root";
     //Senha do MySQL

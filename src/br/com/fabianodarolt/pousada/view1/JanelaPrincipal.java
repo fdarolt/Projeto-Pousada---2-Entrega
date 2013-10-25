@@ -6,12 +6,12 @@ package br.com.fabianodarolt.pousada.view1;
 
 /**
  *
- * @author guest01
+ * @author Fabiano
  */
 public class JanelaPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form JanelaPrincipal
+     * Creates new form JanelaCadastroGeral
      */
     public JanelaPrincipal() {
         initComponents();
@@ -26,42 +26,42 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btAdministrador1 = new javax.swing.JButton();
-        btAdministrador2 = new javax.swing.JButton();
         painelFundo = new javax.swing.JPanel();
         painelLogin = new javax.swing.JPanel();
-        btPousada = new javax.swing.JButton();
-        brAdministrador = new javax.swing.JButton();
-        btFuncionario = new javax.swing.JButton();
+        btFuncionarios = new javax.swing.JButton();
+        brFornecedores = new javax.swing.JButton();
+        btClientes = new javax.swing.JButton();
         btCadastro = new javax.swing.JButton();
 
-        btAdministrador1.setText("Administrador");
-
-        btAdministrador2.setText("Administrador");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         painelLogin.setBackground(new java.awt.Color(204, 204, 204));
-        painelLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acesso Principal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 14))); // NOI18N
+        painelLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acesso Principal", 0, 0, new java.awt.Font("Arial Black", 0, 14))); // NOI18N
 
         javax.swing.GroupLayout painelLoginLayout = new javax.swing.GroupLayout(painelLogin);
         painelLogin.setLayout(painelLoginLayout);
         painelLoginLayout.setHorizontalGroup(
             painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
         painelLoginLayout.setVerticalGroup(
             painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 101, Short.MAX_VALUE)
         );
 
-        btPousada.setText("Pousada");
+        btFuncionarios.setText("Funcionários");
+        btFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFuncionariosActionPerformed(evt);
+            }
+        });
 
-        brAdministrador.setText("Administrador");
+        brFornecedores.setText("Fornecedores");
 
-        btFuncionario.setText("Funcionário");
+        btClientes.setText("Clientes");
 
-        btCadastro.setText("Cadastros");
+        btCadastro.setText("Cadastro");
         btCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastroActionPerformed(evt);
@@ -74,14 +74,14 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(painelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(painelFundoLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(btPousada, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
+                .addComponent(btFuncionarios)
                 .addGap(18, 18, 18)
-                .addComponent(brAdministrador)
+                .addComponent(brFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painelFundoLayout.setVerticalGroup(
@@ -90,12 +90,14 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addComponent(painelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(brAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPousada, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(brFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        painelLogin.getAccessibleContext().setAccessibleName("Cadastro Geral");
 
         getContentPane().add(painelFundo, java.awt.BorderLayout.CENTER);
 
@@ -104,26 +106,30 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
     private void btCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroActionPerformed
         // TODO add your handling code here:
-        
-         //Estanciar Janela Principal
-        JanelaCadastroGeral jp = new JanelaCadastroGeral();
+
+        //Estanciar Janela Principal
+        JanelaCadastroGeral jc = new JanelaCadastroGeral();
         //Centrar Janela
-        jp.setLocationRelativeTo(null);
+        jc.setLocationRelativeTo(null);
         //Maximizar janela
-        //jp.setExtendedState(jp.MAXIMIZED_BOTH);
+        jc.setExtendedState(jc.MAXIMIZED_BOTH);
         //Tornar Visivel
-        jp.setVisible(true);
-        
+        jc.setVisible(true);
+        dispose();
+
     }//GEN-LAST:event_btCadastroActionPerformed
 
-    
+    private void btFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFuncionariosActionPerformed
+        // TODO add your handling code here:
+                
+    }//GEN-LAST:event_btFuncionariosActionPerformed
+
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brAdministrador;
-    private javax.swing.JButton btAdministrador1;
-    private javax.swing.JButton btAdministrador2;
+    private javax.swing.JButton brFornecedores;
     private javax.swing.JButton btCadastro;
-    private javax.swing.JButton btFuncionario;
-    private javax.swing.JButton btPousada;
+    private javax.swing.JButton btClientes;
+    private javax.swing.JButton btFuncionarios;
     private javax.swing.JPanel painelFundo;
     private javax.swing.JPanel painelLogin;
     // End of variables declaration//GEN-END:variables

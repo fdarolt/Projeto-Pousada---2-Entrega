@@ -27,8 +27,8 @@ public class FuncionarioController {
         return dao.remove(id);
     }
 
-    public Funcionario listById(int codigo) {
+    public Funcionario listById(int id) {
         FuncionarioDAO dao = new FuncionarioDAOImplements();
-        return dao.listById(codigo);
+        return dao.listById(id);
     }   
 }
