@@ -18,10 +18,10 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
             + "cpf,endereco_id, telefoneresidencial, telefonecelular, \n" +
 "email, salario, dataadmissao,funcao,login,senha) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
     
-    private static final String LIST = "select * from funcionario, endereco where  funcionario.endereco_id = endereco.id;";
+    private static final String LIST = "select * from funcionario;";//, endereco where  funcionario.endereco_id = endereco.id;";
     private static final String REMOVE = "delete from funcionario where id = ?;";
     private static final String UPDATE = "update funcionario set nome =?,sexo=?,"
-            + "datanascimento=?,rg=?,cpf=?, endereco_id=?,telefoneresidencial=?,telefonecelular=?,email=?,salario=?,dataadmissao=?,"
+            + "datanascimento=?,rg=?,cpf=?,endereco_id=?, telefoneresidencial=?,telefonecelular=?,email=?,salario=?,dataadmissao=?,"
             + "funcao=?,login=?,senha=?;";
     private static final String LISTBYID = "select * from funcionario where id = ?;";
     private static final String LISTBYNOME = "select * from funcionario where nome like ?;";
@@ -117,24 +117,23 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 f.setId(rs.getInt("id"));
                 f.setNome(rs.getString("nome"));
                 f.setSexo(rs.getString("sexo"));
-                f.setDataAdmissao(rs.getDate("datanascimento"));
+                f.setDataNascimento(rs.getDate("datanascimento"));
                 f.setRg(rs.getString("rg"));
                 f.setCpf(rs.getString("cpf"));
 
                 //***********************************************************************************************
 
-                Endereco en = new Endereco();
-
-                en.setRua(rs.getString("rua"));
-                en.setNumero(Integer.parseInt(rs.getString("numero")));
-                en.setComplemento(rs.getString("complemento"));
-                en.setBairro(rs.getString("bairro"));
-                en.setCidade(rs.getString("cidade"));
-                en.setEstado(rs.getString("estado"));
-                en.setPais(rs.getString("pais"));
-                en.setCep(rs.getString("cep"));
-
-                f.setEndereco(en);
+//                Endereco en = new Endereco();
+//
+//                en.setRua(rs.getString("endereco.rua"));
+//                en.setNumero(Integer.parseInt(rs.getString("endereco.numero")));
+//                en.setComplemento(rs.getString("endereco.complemento"));
+//                en.setBairro(rs.getString("endereco.bairro"));
+//                en.setCidade(rs.getString("endereco.cidade"));
+//                en.setPais(rs.getString("endereco.pais"));
+//                en.setCep(rs.getString("endereco.cep"));
+//
+//                f.setEndereco(en);
 
                 //********************************************************************************************  
 
@@ -142,7 +141,7 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 f.setTelefoneCelular(rs.getString("telefonecelular"));
                 f.setEmail(rs.getString("email"));
                 f.setSalario(rs.getString("salario"));
-                f.setDataNascimento(rs.getDate("dataadmissao"));
+                f.setDataAdmissao(rs.getDate("dataadmissao"));
                 f.setFuncao(rs.getString("funcao"));
                 f.setLogin(rs.getString("login"));
                 f.setSenha(rs.getString("senha"));
@@ -176,31 +175,31 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 f.setId(rs.getInt("id"));
                 f.setNome(rs.getString("nome"));
                 f.setSexo(rs.getString("sexo"));
-                f.setDataAdmissao(rs.getDate("datanascimento"));
+                f.setDataNascimento(rs.getDate("datanascimento"));
                 f.setRg(rs.getString("rg"));
                 f.setCpf(rs.getString("cpf"));
 
                 //***********************************************************************************************
 
-                Endereco en = new Endereco();
-
-                en.setRua(rs.getString("rua"));
-                en.setNumero(Integer.parseInt(rs.getString("numero")));
-                en.setComplemento(rs.getString("complemento"));
-                en.setBairro(rs.getString("bairro"));
-                en.setCidade(rs.getString("cidade"));
-                en.setPais(rs.getString("pais"));
-                en.setCep(rs.getString("cep"));
-
-                f.setEndereco(en);
+//                Endereco en = new Endereco();
+//
+//                en.setRua(rs.getString("endereco.rua"));
+//                en.setNumero(Integer.parseInt(rs.getString("endereco.numero")));
+//                en.setComplemento(rs.getString("endereco.complemento"));
+//                en.setBairro(rs.getString("endereco.bairro"));
+//                en.setCidade(rs.getString("endereco.cidade"));
+//                en.setPais(rs.getString("endereco.pais"));
+//                en.setCep(rs.getString("endereco.cep"));
+//
+//                f.setEndereco(en);
 
                 //********************************************************************************************  
 
                 f.setTelefoneResindecial(rs.getString("telefoneresidencial"));
                 f.setTelefoneCelular(rs.getString("telefonecelular"));
                 f.setEmail(rs.getString("email"));
-                f.setSalario(rs.getString("salario"));
-                f.setDataNascimento(rs.getDate("dataadmissao"));
+                //f.setSalario(rs.getString("salario"));
+                f.setDataAdmissao(rs.getDate("dataadmissao"));
                 f.setFuncao(rs.getString("funcao"));
                 f.setLogin(rs.getString("login"));
                 f.setSenha(rs.getString("senha"));
@@ -271,23 +270,23 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 f.setId(rs.getInt("id"));
                 f.setNome(rs.getString("nome"));
                 f.setSexo(rs.getString("sexo"));
-                f.setDataAdmissao(rs.getDate("datanascimento"));
+                f.setDataNascimento(rs.getDate("datanascimento"));
                 f.setRg(rs.getString("rg"));
                 f.setCpf(rs.getString("cpf"));
 
                 //***********************************************************************************************
 
-                Endereco en = new Endereco();
-
-                en.setRua(rs.getString("rua"));
-                en.setNumero(Integer.parseInt(rs.getString("numero")));
-                en.setComplemento(rs.getString("complemento"));
-                en.setBairro(rs.getString("bairro"));
-                en.setCidade(rs.getString("cidade"));
-                en.setPais(rs.getString("pais"));
-                en.setCep(rs.getString("cep"));
-
-                f.setEndereco(en);
+//                Endereco en = new Endereco();
+//
+//                en.setRua(rs.getString("endereco.rua"));
+//                en.setNumero(Integer.parseInt(rs.getString("endereco.numero")));
+//                en.setComplemento(rs.getString("endereco.complemento"));
+//                en.setBairro(rs.getString("endereco.bairro"));
+//                en.setCidade(rs.getString("endereco.cidade"));
+//                en.setPais(rs.getString("endereco.pais"));
+//                en.setCep(rs.getString("endereco.cep"));
+//
+//                f.setEndereco(en);
 
                 //********************************************************************************************  
 
@@ -295,7 +294,7 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 f.setTelefoneCelular(rs.getString("telefonecelular"));
                 f.setEmail(rs.getString("email"));
                 f.setSalario(rs.getString("salario"));
-                f.setDataNascimento(rs.getDate("dataadmissao"));
+                f.setDataAdmissao(rs.getDate("dataadmissao"));
                 f.setFuncao(rs.getString("funcao"));
                 f.setLogin(rs.getString("login"));
                 f.setSenha(rs.getString("senha"));
@@ -345,8 +344,4 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
         }
         return autentica;
     }
-    
-    
-    
-    
 }

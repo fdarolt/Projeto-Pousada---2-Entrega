@@ -15,10 +15,11 @@ import javax.swing.table.DefaultTableModel;
  * @author Fabiano
  */
 public class FuncionarioLista extends javax.swing.JFrame {
-
+    
     private JTable tabela;
-    private int linhaSelecionada;
+   // private int linhaSelecionada;
     private DefaultTableModel modelo = new DefaultTableModel();
+    
 
     /**
      * Creates new form FuncionarioLista
@@ -38,90 +39,126 @@ public class FuncionarioLista extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        painelConsulta = new javax.swing.JPanel();
-        txPesquisar = new javax.swing.JTextField();
+        painelRolagem = new javax.swing.JScrollPane();
+        painelLogin = new javax.swing.JPanel();
+        ImagemLogo = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         btPesquisar = new javax.swing.JButton();
+        txPesquisar = new javax.swing.JTextField();
         btEditar = new javax.swing.JButton();
         btEliminar = new javax.swing.JButton();
-        painelRolagem = new javax.swing.JScrollPane();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
-        painelConsulta.setBackground(new java.awt.Color(204, 204, 204));
-        painelConsulta.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta de Funcionário", 0, 0, new java.awt.Font("Arial Black", 0, 14))); // NOI18N
-        painelConsulta.setLayout(null);
+        jPanel1.setFocusCycleRoot(true);
+        jPanel1.setPreferredSize(new java.awt.Dimension(650, 589));
 
-        txPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txPesquisarActionPerformed(evt);
-            }
-        });
-        painelConsulta.add(txPesquisar);
-        txPesquisar.setBounds(270, 70, 250, 20);
+        painelRolagem.setBorder(null);
 
+        painelLogin.setBackground(new java.awt.Color(204, 204, 204));
+
+        ImagemLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/fabianodarolt/pousada/View/imagens/Logo.png"))); // NOI18N
+        ImagemLogo.setText("jLabel4");
+
+        jLabel5.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setText("pESquiSAr FuncIoNáRIo");
+
+        btPesquisar.setForeground(new java.awt.Color(102, 102, 102));
         btPesquisar.setText("Pesquisar");
         btPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisarActionPerformed(evt);
             }
         });
-        painelConsulta.add(btPesquisar);
-        btPesquisar.setBounds(540, 70, 85, 23);
 
+        txPesquisar.setForeground(new java.awt.Color(102, 102, 102));
+        txPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txPesquisarActionPerformed(evt);
+            }
+        });
+
+        btEditar.setForeground(new java.awt.Color(102, 102, 102));
         btEditar.setText("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarActionPerformed(evt);
             }
         });
-        painelConsulta.add(btEditar);
-        btEditar.setBounds(437, 106, 85, 23);
 
+        btEliminar.setForeground(new java.awt.Color(102, 102, 102));
         btEliminar.setText("Eliminar");
         btEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEliminarActionPerformed(evt);
             }
         });
-        painelConsulta.add(btEliminar);
-        btEliminar.setBounds(540, 106, 85, 23);
+
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Pesquisar por Nome.:");
+
+        javax.swing.GroupLayout painelLoginLayout = new javax.swing.GroupLayout(painelLogin);
+        painelLogin.setLayout(painelLoginLayout);
+        painelLoginLayout.setHorizontalGroup(
+            painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelLoginLayout.createSequentialGroup()
+                .addComponent(ImagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txPesquisar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelLoginLayout.createSequentialGroup()
+                            .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1))
+                .addContainerGap())
+        );
+        painelLoginLayout.setVerticalGroup(
+            painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelLoginLayout.createSequentialGroup()
+                .addComponent(ImagemLogo)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(painelLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addGroup(painelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btEliminar)
+                    .addComponent(btEditar)
+                    .addComponent(btPesquisar))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
             .addComponent(painelRolagem)
+            .addComponent(painelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(painelConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(painelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(painelRolagem, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE))
+                .addComponent(painelRolagem, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        //        TODO add your handling code here:
-        int linhaSelecionada = -1;
-        linhaSelecionada = tabela.getSelectedRow();
-        if (linhaSelecionada >= 0) {
-            int idFuncionario = (int) tabela.getValueAt(linhaSelecionada, 0);
-            
-            FuncionarioCadastro f1 = new FuncionarioCadastro(modelo,linhaSelecionada,idFuncionario);
-            f1.setLocation(null);
-            f1.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Nenhuma linha Selecionada");
-
-        }
-    }//GEN-LAST:event_btEditarActionPerformed
 
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
         // TODO add your handling code here:
@@ -138,14 +175,34 @@ public class FuncionarioLista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btEliminarActionPerformed
 
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+        //        TODO add your handling code here:
+        int linhaSelecionada = -1;
+        linhaSelecionada = tabela.getSelectedRow();
+        if (linhaSelecionada >= 0) {
+            int idFuncionario = (int) tabela.getValueAt(linhaSelecionada, 0);
+
+            FuncionarioCadastro f1 = new FuncionarioCadastro(modelo, linhaSelecionada,idFuncionario);
+            f1.setLocationRelativeTo(null);
+            f1.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma linha Selecionada");
+
+        }
+    }//GEN-LAST:event_btEditarActionPerformed
+
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
     private void txPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPesquisarActionPerformed
         // TODO add your handling code here:
-         String nome = txPesquisar.getText();
-        FuncionarioController uc = new FuncionarioController();
-        uc.listByNome(nome);
-        //metodo par alimpar tabela
+        String nome = txPesquisar.getText();
+        FuncionarioController fc = new FuncionarioController();
+        fc.listByNome(nome);
+        //metodo para limpar tabela
         modelo.setNumRows(0);
-        for (Funcionario f : uc.listByNome(nome)) {
+        for (Funcionario f : fc.listByNome(nome)) {
             modelo.addRow(new Object[]{
                 f.getId(),
                 f.getNome(),
@@ -153,66 +210,24 @@ public class FuncionarioLista extends javax.swing.JFrame {
                 f.getCpf(),
                 f.getTelefoneResindecial(),
                 f.getSexo()});
-        }      
+        }
     }//GEN-LAST:event_txPesquisarActionPerformed
-
-    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btPesquisarActionPerformed
     /**
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ImagemLogo;
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btEliminar;
     private javax.swing.JButton btPesquisar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel painelConsulta;
+    private javax.swing.JPanel painelLogin;
     private javax.swing.JScrollPane painelRolagem;
     private javax.swing.JTextField txPesquisar;
     // End of variables declaration//GEN-END:variables
 
-//    private void criaJTable() {
-//        tabela = new JTable(modelo);
-//        modelo.addColumn("Código");
-//        modelo.addColumn("Nome");
-//        modelo.addColumn("CPF");
-//        modelo.addColumn("Telefone");
-//        modelo.addColumn("Sexo");
-//        modelo.addColumn("Usuário");
-//        preencherJTable();
-//    }
-//
-//    private void preencherJTable() {
-//        FuncionarioController uc = new FuncionarioController();
-//        for (Funcionario f : uc.listarTodos()) {
-//            modelo.addRow(new Object[]{
-//                f.getId(),
-//                f.getNome(),
-//                f.getSexo(),
-//                f.getDataNascimento(),
-//                f.getRg(),
-//                f.getCpf(),
-//                f.getEndereco().getIdEndereco(),
-//                f.getEndereco().getRua(),
-//                f.getEndereco().getNumero(),
-//                f.getEndereco().getComplemento(),
-//                f.getEndereco().getBairro(),
-//                f.getEndereco().getCidade(),
-//                f.getEndereco().getEstado(),
-//                f.getEndereco().getPais(),
-//                f.getEndereco().getCep(),
-//                f.getTelefoneResindecial(),
-//                f.getTelefoneCelular(),
-//                f.getEmail(),
-//                f.getSalario(),
-//                f.getDataAdmissao(),
-//                f.getFuncao(),
-//                f.getLogin(),
-//                f.getSenha()});
-//        }
-//    }
 
     private void criaJTable() {
 
@@ -233,10 +248,10 @@ public class FuncionarioLista extends javax.swing.JFrame {
             modelo.addRow(new Object[]{
                 f.getId(),
                 f.getNome(),
+                f.getCpf(),
+                f.getTelefoneResindecial(),
                 f.getSexo(),
-                f.getDataNascimento(),
-                f.getTelefoneResindecial()
-            });
+                f.getLogin(),});
         }
     }
 }

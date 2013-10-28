@@ -13,6 +13,5 @@ public class Principal {
         jl.setLocationRelativeTo(null);
         //tornar visivel a janela
         jl.setVisible(true);  
-    }
-    
+    }    
 }
