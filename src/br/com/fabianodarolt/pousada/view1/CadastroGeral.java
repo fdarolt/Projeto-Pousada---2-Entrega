@@ -137,7 +137,7 @@ public class CadastroGeral extends javax.swing.JFrame {
         //Estanciar Janela Principal
         FuncionarioCadastro jc = new FuncionarioCadastro();
         //Centrar Janela
-        jc.setLocationRelativeTo(null);
+        jc.setLocationRelativeTo(null) ;
         //Tornar Visivel
         jc.setVisible(true);
         dispose();
