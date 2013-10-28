@@ -165,6 +165,7 @@ public class FuncionarioCadastro extends javax.swing.JFrame {
         btAdicionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(650, 709));
 
@@ -223,6 +224,7 @@ public class FuncionarioCadastro extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel18.setText("CPF.:");
 
+        txCodigoFuncionario.setEditable(false);
         txCodigoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txCodigoFuncionarioActionPerformed(evt);
