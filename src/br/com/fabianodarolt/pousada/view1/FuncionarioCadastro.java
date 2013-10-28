@@ -707,12 +707,12 @@ public class FuncionarioCadastro extends javax.swing.JFrame {
             int idFuncionario = fc.salvar(f);
             if (idFuncionario > 0) {
                
-                JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
+                JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso ");
             }
         } else {
             int idFuncionario = fc.salvar(f);
             if (idFuncionario > 0) {
-                 JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
+                 JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso ");
             }                
         }
 
