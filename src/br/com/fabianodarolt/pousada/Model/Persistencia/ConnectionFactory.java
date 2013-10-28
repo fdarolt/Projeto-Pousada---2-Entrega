@@ -15,7 +15,7 @@ public class ConnectionFactory {
     //Usuario do MySQL
     private static final String USER = "root";
     //Senha do MySQL
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "";
 
     //Metodo que pega Conexao
     public static Connection getConnection() throws SQLException {
