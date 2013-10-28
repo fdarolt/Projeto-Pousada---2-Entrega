@@ -4,6 +4,9 @@
  */
 package br.com.fabianodarolt.pousada.view1;
 
+import br.com.fabianodarolt.pousada.Model.Persistencia.FuncionarioDAOImplements;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author guest01
@@ -173,28 +176,28 @@ public class JanelaLogin extends javax.swing.JFrame {
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
         // TODO add your handling code here:        
 
-//        FuncionarioDAOImplements fi = new FuncionarioDAOImplements();
-//
-//        if (fi.autenticador(txLogin.getText(), txSenha.getText()) == true) {
-//            JanelaPrincipal jp = new JanelaPrincipal();
-//            jp.setLocationRelativeTo(null);
-//            jp.setVisible(true);
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Login ou senha incorreto, tente novamente");
-//            txLogin.setText("");
-//            txSenha.setText("");            
-//        }
-        
-        
-       //Estanciar Janela Principal
+        FuncionarioDAOImplements fi = new FuncionarioDAOImplements();
+
+        if (fi.autenticador(txLogin.getText(), txSenha.getText()) == true) {
             JanelaPrincipal jp = new JanelaPrincipal();
-            //Centrar Janela
             jp.setLocationRelativeTo(null);
-            //Maximizar janela
-            //jp.setExtendedState(jp.MAXIMIZED_BOTH);
-            //Tornar Visivel
             jp.setVisible(true);
-            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Login ou senha incorreto, tente novamente");
+            txLogin.setText("");
+            txSenha.setText("");            
+        }
+        
+        
+//       //Estanciar Janela Principal
+//            JanelaPrincipal jp = new JanelaPrincipal();
+//            //Centrar Janela
+//            jp.setLocationRelativeTo(null);
+//            //Maximizar janela
+//            //jp.setExtendedState(jp.MAXIMIZED_BOTH);
+//            //Tornar Visivel
+//            jp.setVisible(true);
+//            dispose();
 
     }//GEN-LAST:event_btEntrarActionPerformed
 

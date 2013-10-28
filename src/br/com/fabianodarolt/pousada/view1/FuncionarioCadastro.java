@@ -649,7 +649,9 @@ public class FuncionarioCadastro extends javax.swing.JFrame {
         }
 
         en.setRua(txRua.getText());
+        if ( !(txNumero.getText().equals("") || (txNumero.getText() == null))){
         en.setNumero(Integer.parseInt(txNumero.getText()));
+        }
         en.setComplemento(txComplemento.getText());
         en.setBairro(txBairro.getText());
         en.setCidade(txCidade.getText());

@@ -15,14 +15,13 @@ import javax.swing.JOptionPane;
 public class FuncionarioDAOImplements implements FuncionarioDAO {
 
     private static final String INSERT = "insert into funcionario (nome, sexo, datanascimento, rg, "
-            + "cpf,endereco_id, telefoneresidencial, telefonecelular, \n" +
-"email, salario, dataadmissao,funcao,login,senha) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-    
+            + "cpf,endereco_id, telefoneresidencial, telefonecelular, \n"
+            + "email, salario, dataadmissao,funcao,login,senha) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
     private static final String LIST = "select * from funcionario;";//, endereco where  funcionario.endereco_id = endereco.id;";
     private static final String REMOVE = "delete from funcionario where id = ?;";
     private static final String UPDATE = "update funcionario set nome =?,sexo=?,"
-            + "datanascimento=?,rg=?,cpf=?,endereco_id=?, telefoneresidencial=?,telefonecelular=?,email=?,salario=?,dataadmissao=?,"
-            + "funcao=?,login=?,senha=?;";
+            + "datanascimento=?,rg=?,cpf=?, telefoneresidencial=?,telefonecelular=?,email=?,salario=?,dataadmissao=?,"
+            + "funcao=?,login=?,senha=? where id = ?;";
     private static final String LISTBYID = "select * from funcionario where id = ?;";
     private static final String LISTBYNOME = "select * from funcionario where nome like ?;";
     private static final String AUTENTICA = "select login,senha from funcionario;";
@@ -42,7 +41,7 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
         int retorno = -1;
         try {
             con = ConnectionFactory.getConnection();
-            pstm = con.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
+            pstm = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             pstm.setString(1, f.getNome());
             pstm.setString(2, f.getSexo());
             pstm.setDate(3, new java.sql.Date(f.getDataNascimento().getTime()));
@@ -198,7 +197,7 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                 f.setTelefoneResindecial(rs.getString("telefoneresidencial"));
                 f.setTelefoneCelular(rs.getString("telefonecelular"));
                 f.setEmail(rs.getString("email"));
-                //f.setSalario(rs.getString("salario"));
+                f.setSalario(rs.getString("salario"));
                 f.setDataAdmissao(rs.getDate("dataadmissao"));
                 f.setFuncao(rs.getString("funcao"));
                 f.setLogin(rs.getString("login"));
@@ -224,21 +223,20 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
         try {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(UPDATE);
-             pstm.setString(1, f.getNome());
+            pstm.setString(1, f.getNome());
             pstm.setString(2, f.getSexo());
             pstm.setDate(3, new java.sql.Date(f.getDataNascimento().getTime()));
             pstm.setString(4, f.getRg());
             pstm.setString(5, f.getCpf());
-            pstm.setInt(6, f.getEndereco().getIdEndereco());
-            pstm.setString(7, f.getTelefoneResindecial());
-            pstm.setString(8, f.getTelefoneCelular());
-            pstm.setString(9, f.getEmail());
-            pstm.setString(10, f.getSalario());
-            pstm.setDate(11, new java.sql.Date(f.getDataAdmissao().getTime()));
-            pstm.setString(12, f.getFuncao());
-            pstm.setString(13, f.getLogin());
-            pstm.setString(14, f.getSenha());
-            pstm.setInt(15, f.getId());
+            pstm.setString(6, f.getTelefoneResindecial());
+            pstm.setString(7, f.getTelefoneCelular());
+            pstm.setString(8, f.getEmail());
+            pstm.setString(9, f.getSalario());
+            pstm.setDate(10, new java.sql.Date(f.getDataAdmissao().getTime()));
+            pstm.setString(11, f.getFuncao());
+            pstm.setString(12, f.getLogin());
+            pstm.setString(13, f.getSenha());
+            pstm.setInt(14, f.getId());
             pstm.execute();
             retorno = f.getId();
 
@@ -318,28 +316,28 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
     public int editar(Funcionario f) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public boolean autenticador(String txLogin, String txSenha){
+
+    public boolean autenticador(String txLogin, String txSenha) {
         boolean autentica = false;
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        try{
+        try {
             con = ConnectionFactory.getConnection();
             pstm = con.prepareStatement(AUTENTICA);
             rs = pstm.executeQuery();
-            while(rs.next()){
-                if(rs.getString("login").equals(txLogin) && rs.getString("senha").equals(txSenha)){
-                  autentica = true;
+            while (rs.next()) {
+                if (rs.getString("login").equals(txLogin) && rs.getString("senha").equals(txSenha)) {
+                    autentica = true;
                 }
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Erro ao autenticar: " + e.getMessage());
-        }finally{
-            try{
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao autenticar: " + e.getMessage());
+        } finally {
+            try {
                 ConnectionFactory.closeConnection(con, pstm, rs);
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"Erro ao fechar conexão: " + e.getMessage());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro ao fechar conexão: " + e.getMessage());
             }
         }
         return autentica;
