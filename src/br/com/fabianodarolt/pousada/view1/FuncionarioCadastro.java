@@ -669,11 +669,7 @@ public class FuncionarioCadastro extends javax.swing.JFrame {
 
         if (!(txCodigoFuncionario.getText().equals("") || (txCodigoFuncionario.getText() == null))) {
             f.setId(Integer.parseInt(txCodigoFuncionario.getText()));
-        }
-        //****************************************************************************
-//        String id = txCodigoFuncionario.getText().trim();
-//        f.setId(Integer.parseInt(id));
-        //****************************************************************************
+        }        
         f.setNome(txNome.getText());
 
         if (rbFeminino.isSelected()) {
@@ -710,61 +706,14 @@ public class FuncionarioCadastro extends javax.swing.JFrame {
 
             int idFuncionario = fc.salvar(f);
             if (idFuncionario > 0) {
-                modelo.addRow(new Object[]{
-                    idFuncionario,
-                    f.getNome(),
-                    f.getSexo(),
-                    f.getDataNascimento(),
-                    f.getRg(),
-                    f.getCpf(),
-                    f.getEndereco().getIdEndereco(),
-                    f.getEndereco().getRua(),
-                    f.getEndereco().getNumero(),
-                    f.getEndereco().getComplemento(),
-                    f.getEndereco().getBairro(),
-                    f.getEndereco().getCidade(),
-                    f.getEndereco().getEstado(),
-                    f.getEndereco().getPais(),
-                    f.getEndereco().getCep(),
-                    f.getTelefoneResindecial(),
-                    f.getTelefoneCelular(),
-                    f.getEmail(),
-                    f.getSalario(),
-                    f.getDataAdmissao(),
-                    f.getFuncao(),
-                    f.getLogin(),
-                    f.getSenha()});
+               
                 JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
             }
         } else {
             int idFuncionario = fc.salvar(f);
             if (idFuncionario > 0) {
-                modelo.removeRow(linhaSelecionada);
-                modelo.addRow(new Object[]{
-                    idFuncionario,
-                    f.getNome(),
-                    f.getSexo(),
-                    f.getDataNascimento(),
-                    f.getRg(),
-                    f.getCpf(),
-                    f.getEndereco().getIdEndereco(),
-                    f.getEndereco().getRua(),
-                    f.getEndereco().getNumero(),
-                    f.getEndereco().getComplemento(),
-                    f.getEndereco().getBairro(),
-                    f.getEndereco().getCidade(),
-                    f.getEndereco().getEstado(),
-                    f.getEndereco().getPais(),
-                    f.getEndereco().getCep(),
-                    f.getTelefoneResindecial(),
-                    f.getTelefoneCelular(),
-                    f.getEmail(),
-                    f.getSalario(),
-                    f.getDataAdmissao(),
-                    f.getFuncao(),
-                    f.getLogin(),
-                    f.getSenha()});
-            }
+                 JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
+            }                
         }
 
         //Construtor limpar campos
@@ -784,6 +733,7 @@ public class FuncionarioCadastro extends javax.swing.JFrame {
         fl.setLocationRelativeTo(null);
         //Tornar Janela Visivel
         fl.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btPesquisarActionPerformed
 
     private void txSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txSalarioActionPerformed

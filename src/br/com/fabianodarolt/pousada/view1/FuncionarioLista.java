@@ -15,11 +15,10 @@ import javax.swing.table.DefaultTableModel;
  * @author Fabiano
  */
 public class FuncionarioLista extends javax.swing.JFrame {
-    
+
     private JTable tabela;
-   // private int linhaSelecionada;
+    // private int linhaSelecionada;
     private DefaultTableModel modelo = new DefaultTableModel();
-    
 
     /**
      * Creates new form FuncionarioLista
@@ -182,12 +181,12 @@ public class FuncionarioLista extends javax.swing.JFrame {
         if (linhaSelecionada >= 0) {
             int idFuncionario = (int) tabela.getValueAt(linhaSelecionada, 0);
 
-            FuncionarioCadastro f1 = new FuncionarioCadastro(modelo, linhaSelecionada,idFuncionario);
+            FuncionarioCadastro f1 = new FuncionarioCadastro(modelo, linhaSelecionada, idFuncionario);
             f1.setLocationRelativeTo(null);
             f1.setVisible(true);
+            dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Nenhuma linha Selecionada");
-
+            JOptionPane.showMessageDialog(null, "Nenhuma linha Selecionada");            
         }
     }//GEN-LAST:event_btEditarActionPerformed
 
@@ -211,6 +210,7 @@ public class FuncionarioLista extends javax.swing.JFrame {
                 f.getTelefoneResindecial(),
                 f.getSexo()});
         }
+        dispose();
     }//GEN-LAST:event_txPesquisarActionPerformed
     /**
      * @param args the command line arguments
@@ -227,7 +227,6 @@ public class FuncionarioLista extends javax.swing.JFrame {
     private javax.swing.JScrollPane painelRolagem;
     private javax.swing.JTextField txPesquisar;
     // End of variables declaration//GEN-END:variables
-
 
     private void criaJTable() {
 

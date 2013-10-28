@@ -182,23 +182,12 @@ public class JanelaLogin extends javax.swing.JFrame {
             JanelaPrincipal jp = new JanelaPrincipal();
             jp.setLocationRelativeTo(null);
             jp.setVisible(true);
+            dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Login ou senha incorreto, tente novamente");
             txLogin.setText("");
             txSenha.setText("");            
         }
-        
-        
-//       //Estanciar Janela Principal
-//            JanelaPrincipal jp = new JanelaPrincipal();
-//            //Centrar Janela
-//            jp.setLocationRelativeTo(null);
-//            //Maximizar janela
-//            //jp.setExtendedState(jp.MAXIMIZED_BOTH);
-//            //Tornar Visivel
-//            jp.setVisible(true);
-//            dispose();
-
     }//GEN-LAST:event_btEntrarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
